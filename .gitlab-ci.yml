@@ -14,11 +14,11 @@ stages:
 build_test_image:
   stage: build
   script:
-    - docker build -t docker.infra.cloveri.com/profplay/frontend/vit.ru.profplay.test .
+    - docker build -t docker.infra.cloveri.com/cloveri.start/profplay/frontend/vit.ru.profplay.test .
     - docker login https://docker.infra.cloveri.com -u $CI_REGISTRY_USER --password-stdin <<<$CI_JOB_TOKEN
-    - docker push docker.infra.cloveri.com/profplay/frontend/vit.ru.profplay.test
+    - docker push docker.infra.cloveri.com/cloveri.start/profplay/frontend/vit.ru.profplay.test
   after_script:
-    - docker rmi docker.infra.cloveri.com/profplay/frontend/vit.ru.profplay.test
+    - docker rmi docker.infra.cloveri.com/cloveri.start/profplay/frontend/vit.ru.profplay.test
   rules:
     - if: '$CI_COMMIT_BRANCH == "dev"'
   tags: [docker]
@@ -26,11 +26,11 @@ build_test_image:
 build_test_image:
   stage: build
   script:
-    - docker build -t docker.infra.cloveri.com/profplay/frontend/vit.ru.profplay .
+    - docker build -t docker.infra.cloveri.com/cloveri.start/profplay/frontend/vit.ru.profplay .
     - docker login https://docker.infra.cloveri.com -u $CI_REGISTRY_USER --password-stdin <<<$CI_JOB_TOKEN
-    - docker push docker.infra.cloveri.com/profplay/frontend/vit.ru.profplay
+    - docker push docker.infra.cloveri.com/cloveri.start/profplay/frontend/vit.ru.profplay
   after_script:
-    - docker rmi docker.infra.cloveri.com/profplay/frontend/vit.ru.profplay
+    - docker rmi docker.infra.cloveri.com/cloveri.start/profplay/frontend/vit.ru.profplay
   rules:
     - if: '$CI_COMMIT_BRANCH == "master"'
   tags: [docker]
@@ -39,8 +39,8 @@ deploy_in_test:
   stage: deploy
   script:
     - docker login https://docker.infra.cloveri.com -u $CI_REGISTRY_USER --password-stdin <<<$CI_JOB_TOKEN
-    - docker pull docker.infra.cloveri.com/profplay/frontend/vit.ru.profplay.test
-    - docker run -d -p 65530:80 --name vit.ru.profplay docker.infra.cloveri.com/profplay/frontend/vit.ru.profplay.test
+    - docker pull docker.infra.cloveri.com/cloveri.start/profplay/frontend/vit.ru.profplay.test
+    - docker run -d -p 65530:80 --name vit.ru.profplay docker.infra.cloveri.com/cloveri.start/profplay/frontend/vit.ru.profplay.test
     - sleep 15
     - docker logs vit.ru.profplay
   rules:
