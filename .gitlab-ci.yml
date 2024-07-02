@@ -40,9 +40,9 @@ deploy_in_test:
   script:
     - docker login https://docker.infra.cloveri.com -u $CI_REGISTRY_USER --password-stdin <<<$CI_JOB_TOKEN
     - docker pull docker.infra.cloveri.com/cloveri.start/profplay/frontend/vit.ru.profplay.test
-    - docker run -d -p 65530:80 --name vit.ru.profplay docker.infra.cloveri.com/cloveri.start/profplay/frontend/vit.ru.profplay.test
+    - docker compose up -d
     - sleep 15
-    - docker logs vit.ru.profplay
+    - docker compose -p profplay_vit logs
   rules:
     - if: '$CI_COMMIT_BRANCH == "dev"'
   tags: [profplay]

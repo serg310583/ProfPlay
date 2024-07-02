@@ -7,7 +7,7 @@ const api = axios.create({
 
 // Создание экземпляра axios для наград
 const awardsApi = axios.create({
-	baseURL: `https://reg.achiever.skroy.ru`,
+	baseURL: `https://api.achiever.skroy.ru`,
 })
 // Создание экземпляра axios для пользователя
 const userApi = axios.create({
