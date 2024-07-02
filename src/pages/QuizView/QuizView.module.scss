@@ -1,0 +1,157 @@
+@import '../../SCSS/variables.scss';
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  padding: 30px;
+  width: 734px;
+  min-height: 550px;
+  background-color: $white;
+
+  &__button {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 40px;
+    align-items: center;
+  }
+  &__question {
+    width: 540px;
+    margin-bottom: 20px;
+    .title {
+      font-size: 18px;
+      font-weight: 700;
+      line-height: 21.78px;
+      letter-spacing: 0.16px;
+      text-align: left;
+    }
+    //заголовок теста овчаровой
+    .title_ovchar {
+      width: 540px;
+      line-height: 19px;
+      color: $black-2;
+      letter-spacing: -0.2px;
+      text-align: center;
+    }
+  }
+  &__progressKlimov {
+    width: 341px;
+    height: 18px;
+  }
+  &__progressHoland {
+    width: 541px;
+    height: 18px;
+  }
+  &__resultBtn {
+    margin-top: 23px;
+    width: 540px;
+    height: 58px;
+    padding: 17px;
+    background-color: $yellow;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+    color: $black;
+    cursor: pointer;
+    outline: none;
+    font-size: 18px;
+    line-height: 24px;
+    transition: $transition;
+    text-align: center;
+    text-decoration: none;
+    &:hover {
+      background-color: $black;
+      color: $yellow;
+    }
+    &:active {
+      background-color: $black;
+      opacity: 0.3;
+      color: $white;
+    }
+  }
+}
+@media (min-width: 480px) and (max-width: 1200px) {
+  .wrapper {
+    width: 382px;
+    height: 422px;
+    padding: 20px;
+    &__button {
+      margin-bottom: 20px;
+    }
+    &__question {
+      width: 304px;
+      .title {
+        font-size: 12px;
+        line-height: 14.52px;
+      }
+      .title_ovchar {
+        width: 265px;
+        font-size: 12px;
+        line-height: normal;
+        text-align: left;
+      }
+    }
+    &__progressKlimov {
+      width: 221px;
+      height: 12px;
+    }
+    &__progressHoland {
+      width: 342px;
+      height: 12px;
+    }
+
+    &__resultBtn {
+      margin-top: 20px;
+      width: 303px;
+      height: 44px;
+      padding: 10px;
+      font-size: 12px;
+    }
+  }
+}
+@media (min-width: 320px) and (max-width: 479px) {
+  .wrapper {
+    width: 320px;
+    height: 586px;
+    padding: 40px 10px;
+    &__button {
+      margin-bottom: 80px;
+    }
+    &__question {
+      width: 300px;
+      margin-top: -20px;
+      .title {
+        font-size: 12px;
+        line-height: 14.52px;
+      }
+      .title_ovchar {
+        width: 290px;
+        font-size: 12px;
+        line-height: normal;
+        text-align: left;
+      }
+    }
+    &__progressKlimov {
+      width: 221px;
+      height: 12px;
+    }
+    &__progressHoland {
+      width: 299px;
+      height: 12px;
+    }
+
+    &__resultBtn {
+      margin-top: 40px;
+      width: 300px;
+      height: 58px;
+    }
+    &__resultBtn {
+      margin-top: 40px;
+      width: 300px;
+      height: 58px;
+      padding: 17px;
+      font-size: 12px;
+    }
+  }
+}

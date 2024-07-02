@@ -1,0 +1,97 @@
+@import './../../SCSS/variables.scss';
+.wrapper {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba($color: $grey-bg, $alpha: 0.5);
+
+  width: 100vw;
+  height: 100vh;
+  .modal {
+    background-color: $white;
+    display: flex;
+    padding: 30px;
+    flex-direction: column;
+    align-items: center;
+    width: 734px;
+    height: 814px;
+    .buttons {
+      width: 100%;
+      display: flex;
+      justify-content: right;
+      margin-bottom: 40px;
+    }
+    .title {
+      color: $black;
+      text-align: center;
+      margin-bottom: 40px;
+      font-size: 18px;
+      font-weight: 700;
+      line-height: normal;
+    }
+    .linkContainer {
+      display: flex;
+      justify-content: center;
+      width: 100%;
+      .link {
+        text-decoration: none;
+        color: $grey-bg;
+        text-align: center;
+        cursor: pointer;
+        font-size: 18px;
+
+        font-weight: 700;
+        line-height: 24px; /* 133.333% */
+        letter-spacing: 0.16px;
+      }
+    }
+  }
+}
+@media (min-width: 480px) and (max-width: 1200px) {
+  .wrapper {
+    .modal {
+      padding: 20px 38px;
+      width: 380px;
+      height: 533px;
+      .buttons {
+        margin-bottom: 28px;
+      }
+      .title {
+        margin-bottom: 28px;
+        font-size: 12px;
+      }
+      .linkContainer {
+        .link {
+          font-size: 12px;
+        }
+      }
+    }
+  }
+}
+@media (min-width: 320px) and (max-width: 479px) {
+  .wrapper {
+    .modal {
+      padding: 20px 10px;
+      width: 304px;
+      height: 553px;
+      .buttons {
+        margin-bottom: 18px;
+      }
+      .title {
+        margin-bottom: 18px;
+        font-size: 12px;
+      }
+      .linkContainer {
+        font-size: 12px;
+        .link {
+          font-size: 12px;
+        }
+      }
+    }
+  }
+}

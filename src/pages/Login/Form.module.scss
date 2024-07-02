@@ -1,0 +1,102 @@
+@import './../../SCSS/variables.scss';
+
+.login_form {
+  display: flex;
+  flex-direction: column;
+  width: 540px;
+  height: 268px;
+
+  .item {
+    width: 100%;
+
+    .my_input {
+      height: 58px;
+      font-size: 18px;
+      border-radius: 0;
+      border-color: $black;
+    }
+    .my_button {
+      background-color: $yellow;
+      width: 100%;
+      height: 58px;
+      font-family: 'Roboto', sans-serif;
+      font-weight: 700 !important;
+      font-style: normal;
+      color: $black;
+      cursor: pointer;
+      outline: none;
+      border: none;
+      border-radius: 0px;
+      font-size: 18px;
+      transition: $transition;
+      margin-bottom: 20px;
+      &:hover {
+        background-color: $black;
+        color: $yellow;
+      }
+      &:active {
+        background-color: $black;
+        opacity: 0.3;
+        color: $white;
+      }
+    }
+    .linkContainer {
+      display: flex;
+      justify-content: center;
+      width: 100%;
+      margin-bottom: 10px;
+      .link {
+        text-decoration: none;
+        color: $grey-bg;
+        text-align: center;
+        font-size: 18px;
+        font-weight: 700;
+        line-height: 24px; /* 133.333% */
+        letter-spacing: 0.16px;
+      }
+    }
+  }
+}
+@media screen and (min-width: 480px) and (max-width: 1200px) {
+  .login_form {
+    max-width: 304px;
+    height: 176px;
+    .item {
+      margin-bottom: 16px;
+      .my_input {
+        height: 35px;
+        font-size: 12px;
+      }
+      .my_button {
+        height: 35px;
+      }
+      .linkContainer {
+        .link {
+          font-size: 12px;
+        }
+      }
+    }
+  }
+}
+@media (min-width: 320px) and (max-width: 479px) {
+  .login_form {
+    max-width: 280px;
+    height: 200px;
+    .item {
+      margin-bottom: 10px;
+      .my_input {
+        height: 58px;
+        font-size: 12px;
+      }
+      .my_button {
+        height: 58px;
+      }
+      .linkContainer {
+        .link {
+          margin-top: 10px;
+          font-size: 12px;
+        }
+      }
+    }
+  }
+}

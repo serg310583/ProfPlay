@@ -1,0 +1,22 @@
+@import '../../SCSS/variables.scss';
+.prevWrapper {
+  cursor: pointer;
+  stroke: $black;
+  background-color: inherit;
+  border: none;
+  &:hover {
+    stroke: $yellow;
+    transition: $transition;
+  }
+}
+@media (max-width: 1200px) {
+  .prevWrapper {
+    /* Отмена ховера для кнопок на устройствах с разрешением меньше 1200px */
+    &:hover {
+      stroke: $black;
+    }
+    &:active {
+      stroke: $yellow;
+    }
+  }
+}

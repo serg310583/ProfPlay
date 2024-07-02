@@ -1,0 +1,114 @@
+@import '../../../../SCSS/variables.scss';
+
+.resultKlimovScales {
+  display: flex;
+  width: 541px;
+  height: 253px;
+  margin-top: 20px;
+  padding: 30px 20px;
+  border-radius: 9px;
+  border: 1px solid $yellow;
+  box-shadow: 0 2px 12px rgb(243 206 55 / 30%);
+
+  .scaleCharacter {
+    width: 470px;
+
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    &__scale {
+      display: flex;
+      height: 27px;
+      justify-content: flex-end;
+      width: 100%;
+      list-style: none;
+      &_name {
+        display: flex;
+        justify-content: flex-end;
+        background-image: url('/assets/images/scale_bg.png');
+        padding-right: 5px;
+        width: 245px;
+        height: 27px;
+        font-size: 16px;
+        line-height: normal;
+        align-items: center;
+      }
+      .points {
+        width: 246px;
+        height: 27px;
+        display: flex;
+        padding-left: 10px;
+        align-items: center;
+        .point {
+          text-decoration: none;
+          width: 16px;
+          height: 27px;
+          border-radius: 6px;
+          list-style-type: none;
+          margin-right: 2.96px;
+        }
+      }
+    }
+  }
+}
+@media screen and (min-width: 480px) and (max-width: 1200px) {
+  .resultKlimovScales {
+    width: 304px;
+    height: 216px;
+    margin-top: 7px;
+    padding: 28px 10px;
+
+    .scaleCharacter {
+      width: 284px;
+      height: 160px;
+
+      &__scale {
+        display: flex;
+        align-items: center;
+        height: 26px;
+        &_name {
+          display: flex;
+          justify-content: flex-end;
+          background-image: url('/assets/images/scale_bg_mobile.png');
+          width: 132px;
+          height: 26px;
+          font-size: 12px;
+        }
+        .points {
+          width: 137px;
+          height: 21px;
+          .point {
+            width: 14px;
+            height: 21px;
+            margin-right: 2.96px;
+          }
+        }
+      }
+    }
+  }
+}
+@media (min-width: 320px) and (max-width: 479px) {
+  .resultKlimovScales {
+    width: 300px;
+    margin-top: 7px;
+    padding: 28px 10px;
+    .scaleCharacter {
+      &__scale {
+        &_name {
+          background-image: url('/assets/images/scale_bg_mobile.png');
+          width: 135px;
+          font-size: 12px;
+        }
+        .points {
+          width: 135px;
+          height: 21px;
+          .point {
+            width: 14px;
+            height: 21px;
+          }
+        }
+      }
+    }
+  }
+}

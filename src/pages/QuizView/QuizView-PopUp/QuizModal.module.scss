@@ -1,0 +1,123 @@
+@import '../../../SCSS/variables.scss';
+.bg {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.4);
+  .popup {
+    padding-top: 90px;
+    padding-left: 100px;
+    width: 734px;
+    height: 431px;
+    background: $white;
+    &__title {
+      font-weight: 700;
+      font-size: 18px;
+      margin-bottom: 40px;
+    }
+    &__text {
+      width: 400px;
+      margin-bottom: 40px;
+
+      font-size: 18px;
+      line-height: 21.78px;
+    }
+    &__buttonsWrapper {
+      display: flex;
+      gap: 42px;
+
+      button {
+        width: 250px;
+        height: 105px;
+        font-size: 18px;
+        line-height: 24px;
+        border: 1px solid $grey-bg;
+        cursor: pointer;
+      }
+      .popup__button_grey {
+        background-color: $grey-bg;
+        color: $white;
+      }
+      .popup__button_white {
+        background-color: $white;
+        color: $black;
+      }
+    }
+  }
+}
+@media (min-width: 480px) and (max-width: 1200px) {
+  .bg {
+    .popup {
+      padding-top: 40px;
+      padding-left: 40px;
+      width: 380px;
+      height: 254px;
+
+      &__title {
+        font-size: 12px;
+        margin-bottom: 25px;
+      }
+      &__text {
+        width: 268px;
+        margin-bottom: 25px;
+
+        font-size: 12px;
+        line-height: 14.52px;
+      }
+      &__buttonsWrapper {
+        display: flex;
+        gap: 10px;
+        button {
+          width: 147px;
+          height: 69px;
+          font-size: 12px;
+          line-height: 14.52px;
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 320px) and (max-width: 479px) {
+  .bg {
+    .popup {
+      padding-top: 50px;
+      padding-left: 10px;
+      width: 300px;
+      height: 392px;
+
+      &__title {
+        font-size: 12px;
+        line-height: normal;
+        margin-bottom: 25px;
+      }
+      &__text {
+        width: 268px;
+        margin-bottom: 76px;
+        font-size: 12px;
+        line-height: normal;
+
+        font-size: 12px;
+        line-height: 14.52px;
+      }
+      &__buttonsWrapper {
+        // display: flex;
+        width: 280px;
+
+        flex-direction: column;
+        gap: 10px;
+        button {
+          width: 280px;
+          height: 69px;
+          font-size: 12px;
+          line-height: 14.52px;
+        }
+      }
+    }
+  }
+}

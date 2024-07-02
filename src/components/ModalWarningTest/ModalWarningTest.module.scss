@@ -1,0 +1,58 @@
+@import './../../SCSS/variables.scss';
+.wrapperModal {
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 20;
+}
+.modal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 734px;
+  min-height: 368px;
+  background-color: white;
+  padding: 30px;
+}
+.title {
+  color: #121313;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 700;
+}
+.buttonContainer {
+  width: 100%;
+  display: flex;
+  justify-content: end;
+  margin-bottom: 40px;
+}
+.description {
+  width: 540px;
+  color: rgba(60, 71, 76, 0.6);
+  font-size: 18px;
+  letter-spacing: 0.16px;
+  margin-bottom: 40px;
+}
+.buttonsContainer {
+  display: flex;
+  gap: 10px;
+  width: 540px;
+  height: 58px;
+}
+.popup__button_grey {
+  width: 265px;
+  background-color: $grey-bg;
+  color: $white;
+}
+.popup__button_white {
+  width: 265px;
+  background-color: $white;
+  color: $black;
+}

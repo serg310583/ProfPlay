@@ -1,0 +1,21 @@
+@import './../../../SCSS/variables.scss';
+.wrapper {
+  background-color: $white;
+  min-height: calc(100vh - 190px);
+  border: 1px solid $grey-bg;
+}
+@media (min-width: 480px) and (max-width: 1200px) {
+  .wrapper {
+    width: 67vw;
+    min-height: calc(100vh - 108px);
+    border: 1px solid $grey-bg;
+  }
+}
+@media (min-width: 320px) and (max-width: 479px) {
+  .wrapper {
+    width: 100vw;
+    height: calc(100vh - 126px);
+    padding: 40px 20px;
+    overflow-y: scroll;
+  }
+}

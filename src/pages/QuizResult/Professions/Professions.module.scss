@@ -1,0 +1,82 @@
+@import './../../../SCSS/variables.scss';
+.professionsBlock {
+  &_title {
+    margin-bottom: 20px;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: normal;
+    color: $black-2;
+  }
+  &_list {
+    display: flex;
+    flex-direction: column;
+    padding-left: 15px;
+    width: 540px;
+    &_item {
+      display: flex;
+      width: 100%;
+      text-align: left;
+      font-weight: 400;
+      font-size: 18px;
+      line-height: normal;
+      color: $black;
+      list-style: disc;
+      .inRow {
+        display: flex;
+        a {
+          padding-left: 10px;
+          color: $blue;
+          text-decoration: none;
+          line-height: normal;
+        }
+      }
+    }
+  }
+}
+@media screen and (min-width: 480px) and (max-width: 1200px) {
+  .professionsBlock {
+    &_title {
+      margin-left: 5px;
+      margin-bottom: 16px;
+      font-size: 12px;
+    }
+    &_list {
+      padding-left: 15px;
+      width: 304px;
+      &_item {
+        font-size: 12px;
+        line-height: normal;
+        a {
+          font-size: 12px;
+          line-height: normal;
+          color: gray;
+          text-decoration: none;
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 320px) and (max-width: 479px) {
+  .professionsBlock {
+    &_title {
+      margin-left: 5px;
+      margin-bottom: 16px;
+      font-size: 12px;
+    }
+    &_list {
+      padding-left: 15px;
+      width: 300px;
+      &_item {
+        font-size: 12px;
+        line-height: normal;
+        a {
+          font-size: 12px;
+          line-height: normal;
+          color: gray;
+          text-decoration: none;
+        }
+      }
+    }
+  }
+}

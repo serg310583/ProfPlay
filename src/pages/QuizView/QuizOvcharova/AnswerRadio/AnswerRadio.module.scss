@@ -1,0 +1,92 @@
+@import '../../../../SCSS/variables.scss';
+.answers {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+  span {
+    font-size: 12px;
+    color: $grey-bg;
+  }
+  &__buttons {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row-reverse;
+    margin: 0 29px;
+    width: 216px;
+    .button {
+      -webkit-tap-highlight-color: transparent; //убираем дефолтную синюю подсветку
+      width: 24px;
+      height: 24px;
+      border-radius: 100%;
+      border: 2px solid $grey-bg;
+      background-color: $grey;
+      transition: $transition;
+      cursor: pointer;
+      &:hover {
+        transition: $transition;
+
+        border: 2px solid $yellow;
+      }
+      &:focus {
+        transition: $transition;
+        border: 2px solid $grey-bg;
+        background-color: $white;
+      }
+    }
+  }
+}
+/* Медиа-запрос для устройств с разрешением меньше 1200px */
+@media (max-width: 1200px) {
+  .answers {
+    &__buttons {
+      /* Отмена ховера для кнопок на устройствах с разрешением меньше 1200px */
+      .button:hover {
+        background-color: #d2d9dc;
+        border: 2px solid $grey-bg;
+      }
+    }
+  }
+}
+
+@media (min-width: 480px) and (max-width: 1200px) {
+  .answers {
+    display: flex;
+    justify-content: space-between;
+    span {
+      font-size: 9px;
+    }
+    &__buttons {
+      display: flex;
+      justify-content: space-between;
+      margin: 0 10px;
+      width: 84px;
+      .button {
+        width: 12px;
+        height: 12px;
+      }
+    }
+  }
+}
+@media (min-width: 320px) and (max-width: 479px) {
+  .answers {
+    display: flex;
+    justify-content: space-between;
+    span {
+      font-size: 9px;
+      line-height: normal;
+      width: 40px;
+    }
+    &__buttons {
+      display: flex;
+      justify-content: space-between;
+      margin: 0 10px;
+      width: 201px;
+      height: 33px;
+      .button {
+        width: 24px;
+        height: 24px;
+      }
+    }
+  }
+}

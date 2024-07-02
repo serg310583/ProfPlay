@@ -1,0 +1,141 @@
+@import './../../../SCSS/variables.scss';
+
+.title {
+  margin-top: 40px;
+  margin-bottom: 20px;
+  color: $white;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+.input {
+  input {
+    height: 58px;
+    padding: 10px;
+    border-radius: 0;
+    background-color: $grey-bg;
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 18px;
+    font-family: Inter;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    &:hover,
+    &:focus,
+    &:active {
+      border: 1px solid $white;
+      background-color: $grey-bg;
+    }
+  }
+  :where(.css-dev-only-do-not-override-1hy2u8m).ant-input-outlined:focus,
+  :where(
+      .css-dev-only-do-not-override-1hy2u8m
+    ).ant-input-outlined:focus-within {
+    border-color: #ffffff;
+    box-shadow: 0 0 0 0px rgb(230, 244, 255);
+    outline: 0;
+    background-color: #3c474c;
+  }
+}
+.customSelect {
+  :where(.css-dev-only-do-not-override-1hy2u8m).ant-select-outlined:not(
+      .ant-select-customize-input
+    )
+    .ant-select-selector {
+    background-color: #ffffff !important;
+    border: 1px solid #ffffff !important;
+    font-size: 18px;
+  }
+  .ant-select-focused:where(
+      .css-dev-only-do-not-override-1hy2u8m
+    ).ant-select-outlined:not(.ant-select-disabled):not(
+      .ant-select-customize-input
+    ):not(.ant-pagination-size-changer)
+    .ant-select-selector {
+    border-color: #ffffff !important;
+    box-shadow: 0 0 0 0px rgb(230, 244, 255) !important;
+    outline: 0;
+  }
+}
+.popUp {
+  background-color: $grey-bg;
+  border-radius: 0;
+  font-family: Inter;
+}
+
+.button {
+  background-color: $yellow;
+  width: 100%;
+  color: $black;
+  cursor: pointer;
+  outline: none;
+  border: none;
+
+  box-shadow: 0 0 0 rgb(230, 244, 255);
+  transition: $transition;
+  &:hover {
+    background-color: $black !important;
+    color: $yellow;
+  }
+  &:active {
+    background-color: $black !important;
+    color: $white;
+  }
+}
+.customDatePicker {
+  width: 177px;
+  border: 1px solid $white;
+  cursor: pointer;
+  padding: 15px;
+  color: '#FFFFFF80' !important;
+}
+.dropdownClassName {
+  width: 600px !important;
+  height: 300px !important;
+  z-index: 1000;
+}
+
+@media (min-width: 480px) and (max-width: 1200px) {
+  .title {
+    margin-top: 16px;
+    margin-bottom: 16px;
+    font-size: 12px;
+  }
+  .input {
+    margin-bottom: 10px !important;
+    input {
+      font-size: 12px;
+    }
+  }
+  .customSelect {
+    :where(.css-dev-only-do-not-override-1hy2u8m).ant-select-outlined:not(
+        .ant-select-customize-input
+      )
+      .ant-select-selector {
+      font-size: 12px;
+    }
+  }
+  .customWrapper {
+    width: 150px !important;
+    font-size: 12px;
+  }
+  [title='Ваше имя'] {
+    font-size: 12px !important;
+  }
+  [title='Ваша фамилия'] {
+    font-size: 12px !important;
+  }
+  [title='Ваш пол'] {
+    font-size: 12px !important;
+  }
+  [title='Дата рождения'] {
+    font-size: 12px !important;
+  }
+  [title='E-mail'] {
+    font-size: 12px !important;
+  }
+  [title='Номер телефона'] {
+    font-size: 12px !important;
+  }
+}
+@media (min-width: 320px) and (max-width: 479px) {
+}

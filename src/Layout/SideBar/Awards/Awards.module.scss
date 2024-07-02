@@ -1,0 +1,126 @@
+@import './../../../SCSS/variables.scss';
+.awards {
+  min-height: 282px;
+}
+.divider {
+  width: 210px;
+}
+.text {
+  color: $white;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: normal;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.score {
+  color: $yellow;
+  font-size: 40px;
+  font-weight: 700;
+  line-height: normal;
+  text-transform: uppercase;
+}
+
+.title {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 18px;
+  font-weight: 700;
+  line-height: normal;
+  margin-bottom: 20px;
+}
+.award {
+  width: 94px;
+  height: 120px;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+  .list {
+    display: flex;
+    .listItem {
+      display: flex;
+      flex-direction: column;
+      width: 94px;
+      list-style: none;
+      margin-top: 4px;
+      .imageContainer {
+        width: 94px;
+        height: 94px;
+        object-fit: cover;
+        .awardImage {
+          width: 100%;
+        }
+      }
+      .awardDescription {
+        color: $yellow;
+        text-align: center;
+        font-size: 12px;
+        font-weight: 400;
+        line-height: normal;
+        overflow-wrap: break-word;
+      }
+    }
+    li:not(:last-child) {
+      margin-right: 20px;
+    }
+  }
+}
+.noAward {
+  width: 100%;
+  height: 110px;
+  margin-bottom: 20px;
+  p {
+    font-size: 18px;
+    color: $white;
+  }
+}
+@media (min-width: 480px) and (max-width: 1200px) {
+  .awards {
+    min-height: 164px;
+  }
+  .divider {
+    width: 137px;
+  }
+  .text {
+    font-size: 12px;
+  }
+  .score {
+    font-size: 16px;
+    text-transform: uppercase;
+  }
+  .title {
+    font-size: 12px;
+  }
+  .award {
+    width: 34px;
+    height: 34px;
+    margin-bottom: 10px;
+    .list {
+      .listItem {
+        margin-right: 10px;
+        width: 34px;
+        .imageContainer {
+          height: 34px;
+          width: 34px;
+        }
+        .awardDescription {
+          display: none;
+        }
+      }
+      li:not(:last-child) {
+        margin-right: 10px;
+      }
+    }
+  }
+  .noAward {
+    height: 60px;
+    margin-bottom: 20px;
+    p {
+      font-size: 12px;
+    }
+  }
+}
+@media (min-width: 320px) and (max-width: 479px) {
+  .noAward {
+    display: none;
+  }
+}

@@ -1,0 +1,210 @@
+@import './../../SCSS/variables.scss';
+
+.wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 50px 40px;
+  width: 315px;
+  height: calc(100vh - 100px);
+  background-color: $grey-bg;
+  overflow-y: auto; //TODO: наладить прокрутку
+}
+//зарегистрированный пользователь
+.avatar {
+  img {
+    width: 209px;
+    height: 213px;
+  }
+}
+.userinfo {
+  color: $white;
+  font-size: 24px;
+  font-weight: 300;
+  line-height: normal;
+  letter-spacing: -0.24px;
+  margin-bottom: 20px;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.divider {
+  width: 210px;
+}
+.profilesetting {
+  width: 210px;
+  height: 58px;
+  padding: 15px;
+  text-align: center;
+  color: $white;
+  border: 1px solid $white;
+  background-color: $grey-bg;
+  cursor: pointer;
+}
+.buttonExit {
+  width: 210px;
+  height: 58px;
+  padding: 15px;
+  text-align: center;
+  text-decoration: none;
+  color: $white;
+  background-color: inherit;
+  border: none;
+  cursor: pointer;
+}
+
+//незарегистрированный пользователь
+.unregText {
+  width: 210px;
+  height: 110px;
+  margin-bottom: 20px;
+  p {
+    font-size: 18px;
+    line-height: normal;
+    color: $white;
+  }
+}
+
+.register,
+.logIn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 210px;
+  height: 58px;
+  margin-bottom: 20px;
+  padding: 10px;
+  background-color: $yellow;
+  font-size: 18px;
+  font-weight: 700;
+  color: $black;
+  text-decoration: none;
+  cursor: pointer;
+}
+.logIn {
+  background-color: inherit;
+  color: $white;
+  opacity: 0.5;
+  border: none;
+}
+.buttonAwards {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  background-color: inherit;
+  border: none;
+  text-align: center;
+  cursor: pointer;
+  color: #fff;
+  opacity: 0.5;
+  font-size: 18px;
+  line-height: normal;
+  &:hover {
+    opacity: 1;
+  }
+  img {
+    margin-left: 5px;
+  }
+}
+.noAward {
+}
+.buttonAwardsMobile {
+  display: none;
+}
+hr {
+  opacity: 0.3;
+  background: $white;
+  width: 209px;
+  height: 1px;
+  flex-shrink: 0;
+}
+
+@media (min-width: 480px) and (max-width: 1200px) {
+  .wrapper {
+    width: 33vw;
+    height: calc(100vh - 66px);
+    padding: 20px 10px;
+  }
+  .buttons {
+    display: none;
+  }
+  .divider {
+    width: 137px;
+    margin-top: 16px;
+  }
+  .buttonAwards {
+    display: none;
+  }
+  .buttonAwards {
+    display: none;
+  }
+  .buttonAwardsMobile {
+    display: block;
+    background-color: $grey-bg;
+    border: none;
+    width: 127px;
+    height: 24px;
+    margin-bottom: 20px;
+  }
+  .unregText {
+    width: 100%;
+    height: 75px;
+    margin-bottom: 16px;
+    p {
+      font-size: 12px;
+    }
+  }
+  .register,
+  .logIn {
+    width: 137px;
+    height: 44px;
+    font-size: 12px;
+  }
+}
+@media (min-width: 320px) and (max-width: 479px) {
+  .wrapper {
+    flex-direction: row;
+    width: 100vw;
+    height: 66px;
+    padding: 8px 10px;
+  }
+  .buttons {
+    display: none;
+  }
+  .divider {
+    display: none;
+  }
+  .buttonAwards {
+    display: none;
+  }
+  .buttonAwards {
+    display: none;
+  }
+  .buttonAwardsMobile {
+    display: block;
+    background-color: $grey-bg;
+    border: none;
+    width: 127px;
+    height: 24px;
+    margin-bottom: 20px;
+  }
+  .unregText {
+    display: none;
+  }
+  .register,
+  .logIn {
+    width: 134px;
+    height: 29px;
+    padding: 10px;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+    border-radius: 30px;
+    border: 1px solid $black-2;
+    background: $yellow;
+    opacity: 1;
+  }
+}

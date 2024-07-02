@@ -1,0 +1,268 @@
+@import '../../SCSS/variables.scss';
+.title {
+  text-align: left;
+  width: 541px;
+  height: 22px;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 21.78px;
+}
+.sectionResult {
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  min-height: 130vh;
+  padding-top: 37px;
+  padding-bottom: 37px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  &_window {
+    padding-top: 30px;
+    text-align: center;
+    width: 733px;
+    background-color: $white;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    .btnClose {
+      width: 100%;
+      display: flex;
+      justify-content: end;
+      padding-right: 30px;
+      margin-bottom: 40px;
+    }
+    .titleContainer {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+    }
+    .descriptionResults {
+      margin-top: 5%;
+      width: 541px;
+      text-align: left;
+    }
+    .btnMore {
+      width: 541px;
+      border-bottom: $grey-bg 1px solid;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 69px;
+      vertical-align: middle;
+      button {
+        display: flex;
+        justify-content: space-between;
+        width: 310px;
+        align-items: center;
+
+        line-height: normal;
+        color: $grey-bg;
+        opacity: 0.5;
+        font-weight: 700;
+        background: none;
+        border: none;
+        cursor: pointer;
+        vertical-align: middle;
+        .active {
+          transform: rotate(180deg);
+          transition: $transition;
+          margin-left: 10px;
+        }
+        .notActive {
+          transform: rotate(0deg);
+          transition: $transition;
+        }
+      }
+    }
+    .consultationBlock {
+      width: 541px;
+      margin-top: 40px;
+      text-align: left;
+
+      .social {
+        width: 541px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0;
+        &_title {
+          &:hover {
+            ~ .social_link {
+              scale: 120%;
+            }
+          }
+          color: $blue-link;
+          font-size: 18px;
+          font-weight: 400;
+          line-height: normal;
+          margin-right: 8px;
+        }
+        &_link {
+          transition: $transition;
+          &:hover {
+            scale: 120%;
+          }
+        }
+      }
+      .dividing {
+        margin-top: 30px;
+        width: 540px;
+        color: $grey-bg;
+      }
+      .slogan {
+        width: 541px;
+        margin-top: 50px;
+        color: $black-2;
+        line-height: normal;
+        text-align: left;
+      }
+      .btn_result {
+        font-weight: 700;
+        font-size: 18px;
+        letter-spacing: 0.16px;
+        background: $yellow;
+        border: none;
+        width: 540px;
+        height: 58px;
+        margin-top: 30px;
+        margin-bottom: 70px;
+        border: 1px solid $black;
+        cursor: pointer;
+        transition: all 0.5s ease-in-out;
+        &:hover {
+          background: $black;
+          color: $yellow;
+          transition: $transition;
+        }
+      }
+    }
+  }
+}
+@media screen and (min-width: 480px) and (max-width: 1200px) {
+  .title {
+    width: 304px;
+    font-size: 12px;
+  }
+  .sectionResult {
+    padding-top: 50px;
+    &_window {
+      padding-top: 20px;
+      width: 382px;
+      .btnClose {
+        padding-right: 20px;
+        margin-bottom: 20px;
+      }
+      .descriptionResults {
+        margin-top: 28px;
+        width: 304px;
+        h2 {
+          width: 304px;
+          height: 15px;
+          font-size: 12px;
+          line-height: normal;
+        }
+      }
+      .btnMore {
+        width: 304px;
+        height: 59px;
+        button {
+          width: 230px;
+          font-size: 12px;
+          line-height: normal;
+        }
+      }
+      .consultationBlock {
+        width: 304px;
+        margin-top: 30px;
+        .social {
+          width: 304px;
+          &_link {
+            width: 15px;
+            height: 15px;
+          }
+          &_title {
+            font-size: 12px;
+          }
+        }
+        .dividing {
+          margin-top: 19px;
+          width: 304px;
+        }
+        .slogan {
+          font-size: 12px;
+          width: 283px;
+          margin-top: 28px;
+        }
+        .btn_result {
+          font-size: 12px;
+          width: 304px;
+          height: 44px;
+          margin-top: 20px;
+          margin-bottom: 50px;
+        }
+      }
+    }
+  }
+}
+@media (min-width: 320px) and (max-width: 479px) {
+  .title {
+    width: 300px;
+    font-size: 12px;
+  }
+  .sectionResult {
+    padding-top: 70px;
+    padding-right: 10px;
+    padding-left: 10px;
+    &_window {
+      padding-top: 20px;
+      width: 320px;
+      .btnClose {
+        padding-right: 11px;
+      }
+      .descriptionResults {
+        margin-top: 28px;
+        width: 300px;
+      }
+      .btnMore {
+        width: 300px;
+        height: 59px;
+        button {
+          width: 230px;
+          font-size: 12px;
+          line-height: normal;
+        }
+      }
+      .consultationBlock {
+        width: 300px;
+        margin-top: 30px;
+        .social {
+          width: 300px;
+          &_title {
+            font-size: 12px;
+          }
+          &_link {
+            width: 15px;
+            height: 15px;
+          }
+        }
+        .dividing {
+          margin-top: 19px;
+          width: 304px;
+        }
+        .slogan {
+          font-size: 12px;
+          width: 283px;
+          margin-top: 28px;
+        }
+        .btn_result {
+          font-size: 12px;
+          width: 300px;
+          height: 58px;
+          margin-top: 20px;
+          margin-bottom: 50px;
+        }
+      }
+    }
+  }
+}

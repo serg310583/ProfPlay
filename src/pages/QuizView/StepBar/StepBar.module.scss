@@ -1,0 +1,48 @@
+@import '../../../SCSS/variables.scss';
+.wrapper {
+  width: 100%;
+  height: 15px;
+  display: flex;
+  align-items: center;
+  gap: 2px;
+
+  transition: all 0.3s ease;
+  .notPassed {
+    width: 15px;
+    height: 15px;
+    background-color: $grey;
+  }
+  .current {
+    width: 18px;
+    height: 18px;
+    background-color: $grey;
+    border: 2px solid $yellow;
+    border-radius: 100%;
+  }
+
+  .passed {
+    width: 15px;
+    height: 15px;
+    background-color: $yellow;
+  }
+}
+@media (min-width: 320px) and (max-width: 1200px) {
+  .wrapper {
+    height: 10px;
+    width: 10px;
+    width: 100%;
+    .passed {
+      width: 10px;
+      height: 10px;
+    }
+    .current {
+      width: 12px;
+      height: 12px;
+    }
+
+    .notPassed {
+      width: 10px;
+      height: 10px;
+    }
+  }
+}

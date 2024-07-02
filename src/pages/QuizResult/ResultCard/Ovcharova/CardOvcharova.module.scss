@@ -1,0 +1,92 @@
+@import './../../../../SCSS/variables.scss';
+.section {
+  width: 541px;
+  padding: 30px 10px;
+  margin-top: 16px;
+  border-radius: 9px;
+  border: 1px $grey-bg solid;
+  box-shadow: 0 2px 12px rgb(42 49 55 / 30%);
+  &.other {
+    background-color: $grey-bg2;
+  }
+  &_block {
+    &_wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      text-align: left;
+      margin-bottom: 20px;
+      img {
+        object-fit: cover;
+        width: 109px;
+        height: 82px;
+      }
+
+      h3 {
+        font-size: 18px;
+        font-weight: 700;
+        color: $black-2;
+        line-height: normal;
+        margin-left: 10px;
+      }
+    }
+    .text {
+      display: flex;
+      text-align: left;
+      p {
+        color: $black;
+        line-height: normal;
+      }
+    }
+  }
+}
+@media screen and (min-width: 480px) and (max-width: 1200px) {
+  .section {
+    width: 304px;
+    padding: 20px 10px;
+    &_block {
+      &_wrapper {
+        display: flex;
+        width: 100%;
+        margin-bottom: 8px;
+        img {
+          width: 68px;
+          height: 50px;
+        }
+        h3 {
+          font-size: 12px;
+        }
+      }
+      .text {
+        p {
+          font-size: 12px;
+        }
+      }
+    }
+  }
+}
+@media (min-width: 320px) and (max-width: 479px) {
+  .section {
+    width: 300px;
+    padding: 20px 10px;
+    &_block {
+      &_wrapper {
+        display: flex;
+        width: 100%;
+        margin-bottom: 8px;
+        img {
+          width: 68px;
+          height: 50px;
+        }
+        h3 {
+          font-size: 12px;
+        }
+      }
+      .text {
+        p {
+          font-size: 12px;
+        }
+      }
+    }
+  }
+}

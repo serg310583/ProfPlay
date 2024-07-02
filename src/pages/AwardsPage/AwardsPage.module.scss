@@ -1,0 +1,100 @@
+@import './../../SCSS/variables.scss';
+
+.buttonCloseContainer {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 40px;
+}
+.titleAwards {
+  margin-right: 10px;
+  margin-bottom: 20px;
+  color: $white;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 21.78px;
+  text-align: left;
+}
+.totalScore {
+  margin-right: 10px;
+  font-size: 40px;
+  color: $yellow;
+  font-weight: 700;
+  line-height: 48.41px;
+  text-align: left;
+}
+//Полученные награды
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  list-style: none;
+  margin-bottom: 40px;
+}
+.listItem {
+  width: 94px;
+  height: 124px;
+}
+.imageContainer {
+  width: 94px;
+  height: 94px;
+  object-fit: cover;
+  overflow: hidden;
+  margin-bottom: 8px;
+}
+.awardImage {
+  width: 100%;
+}
+.titleAward {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-size: 18px;
+  text-align: center;
+  color: #fff2cb;
+}
+@media (min-width: 480px) and (max-width: 1200px) {
+  .buttonCloseContainer {
+    margin-bottom: 20px;
+  }
+  .titleAwards {
+    margin-bottom: 20px;
+    font-size: 16px;
+  }
+  .totalScore {
+    font-size: 30px;
+  }
+  .listItem {
+    width: 60px;
+    height: 94px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+  }
+  .listItem {
+    width: 60px;
+    height: 94px;
+  }
+  .imageContainer {
+    width: 60px;
+    height: 60px;
+
+    margin-bottom: 8px;
+  }
+  .awardImage {
+    width: 100%;
+  }
+  .titleAward {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-size: 18px;
+    text-align: center;
+    color: #fff2cb;
+  }
+}
+@media (min-width: 320px) and (max-width: 479px) {
+}

@@ -1,0 +1,72 @@
+@import './../../SCSS/variables.scss';
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  width: 1200px;
+  height: 100px;
+  padding: 0 40px;
+  font-size: 18px;
+  background-color: rgba(255, 255, 255, 0.8);
+  .logo {
+    display: flex;
+    align-items: center;
+  }
+  .list {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: end;
+    width: 435px;
+    list-style: none;
+    li {
+      .item {
+        text-decoration: none;
+        font-size: 18px;
+        color: $grey-bg;
+        cursor: pointer;
+        &_active {
+          font-size: 18px;
+          text-decoration: none;
+          color: $broun-link;
+        }
+      }
+    }
+  }
+  .hamburger {
+    display: none;
+    font-size: 18px;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+}
+@media (min-width: 480px) and (max-width: 1200px) {
+  .header {
+    width: 100vw;
+    height: 66px;
+    padding: 40px;
+    background-color: rgba(255, 255, 255, 0.8);
+    .hamburger {
+      display: block;
+    }
+    .list {
+      li {
+        .item {
+          font-size: 16px;
+          &_active {
+            font-size: 16px;
+          }
+        }
+      }
+    }
+  }
+}
+@media (min-width: 320px) and (max-width: 479px) {
+  .header {
+    width: 100vw;
+    height: 60px;
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(2px);
+  }
+}

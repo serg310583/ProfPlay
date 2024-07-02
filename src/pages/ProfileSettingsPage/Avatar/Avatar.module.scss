@@ -1,0 +1,58 @@
+@import './../../../SCSS/variables.scss';
+.avatarBlock {
+  width: 100%;
+  height: 250px;
+}
+
+.avatarGrid {
+  display: flex;
+  gap: 20px;
+}
+.avatarWrapper {
+  display: flex;
+  width: 183px;
+  height: 208px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+  border-radius: 12px;
+  border: 1px solid transparent;
+  background: rgba(255, 255, 255, 0.3);
+  transition: border 0.3s;
+}
+.avatarWrapper.selected {
+  border: 1px solid $yellow;
+}
+
+.avatarOption {
+  position: relative;
+  cursor: pointer;
+}
+
+.avatarImage {
+  width: 95px;
+  height: 95px;
+  border-radius: 30px;
+}
+
+.avatarRank {
+  margin-top: 5px;
+  font-size: 18px;
+  color: #ffffff80;
+}
+.avatarRank.selected {
+  color: $yellow;
+}
+@media (min-width: 480px) and (max-width: 1200px) {
+  .avatarBlock {
+    width: 269px;
+    height: 250px;
+  }
+  .avatarGrid {
+    width: 269px;
+    overflow-x: scroll;
+  }
+}
+@media (min-width: 320px) and (max-width: 479px) {
+}
