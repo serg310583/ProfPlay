@@ -23,7 +23,7 @@ build_test_image:
     - if: '$CI_COMMIT_BRANCH == "dev"'
   tags: [docker]
 
-build_test_image:
+build_prod_image:
   stage: build
   script:
     - docker build -t docker.infra.cloveri.com/cloveri.start/profplay/frontend/vit.ru.profplay .
