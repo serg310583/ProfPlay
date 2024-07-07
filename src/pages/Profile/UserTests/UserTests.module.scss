@@ -1,9 +1,10 @@
 @import './../../../SCSS/variables.scss';
-.wrapper {
+.wrapper_userTests {
   background-color: $white;
   height: calc(100vh - 190px);
   border: 1px solid $grey-bg;
   padding: 40px;
+  overflow-y: auto;
   .titleCard {
     color: $grey-bg;
     margin-bottom: 20px;
@@ -140,7 +141,7 @@
 }
 
 @media (min-width: 480px) and (max-width: 1200px) {
-  .wrapper {
+  .wrapper_userTests {
     width: 67vw;
     height: calc(100vh - 108px);
     padding: 40px 20px;
@@ -218,7 +219,7 @@
   }
 }
 @media (min-width: 320px) and (max-width: 479px) {
-  .wrapper {
+  .wrapper_userTests {
     width: 100vw;
     height: calc(100vh - 126px);
     padding: 40px 20px;
