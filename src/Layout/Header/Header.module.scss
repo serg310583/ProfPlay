@@ -6,7 +6,6 @@
   width: 1200px;
   height: 100px;
   padding: 0 40px;
-  font-size: 18px;
   background-color: rgba(255, 255, 255, 0.8);
   .logo {
     display: flex;
@@ -22,11 +21,11 @@
     li {
       .item {
         text-decoration: none;
-        font-size: 18px;
+        font-size: $fz18-12;
         color: $grey-bg;
         cursor: pointer;
         &_active {
-          font-size: 18px;
+          font-size: $fz18-12;
           text-decoration: none;
           color: $broun-link;
         }
@@ -35,7 +34,7 @@
   }
   .hamburger {
     display: none;
-    font-size: 18px;
+    font-size: $fz18-12;
     background: none;
     border: none;
     cursor: pointer;
@@ -49,16 +48,6 @@
     background-color: rgba(255, 255, 255, 0.8);
     .hamburger {
       display: block;
-    }
-    .list {
-      li {
-        .item {
-          font-size: 16px;
-          &_active {
-            font-size: 16px;
-          }
-        }
-      }
     }
   }
 }

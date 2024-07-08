@@ -31,7 +31,7 @@ export function SideBar({ toggleAwardsPage, toggleProfilePage }) {
   };
 
   return (
-    <aside>
+    <aside className={s.sideBarLayout}>
       {auth.currentUser ? (
         <div className={s.wrapper_sideBar}>
           <ProfileInfo toggleProfilePage={toggleProfilePage} />

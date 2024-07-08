@@ -35,7 +35,7 @@ export function Awards() {
   if (data.length === 0) {
     return (
       <div className={s.noAward}>
-        <p>Зарегистрируйтесь и получите свое первое достижение!</p>
+        <p>У вас еще нет наград</p>
       </div>
     );
   }
