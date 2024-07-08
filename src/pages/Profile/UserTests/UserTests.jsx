@@ -124,7 +124,7 @@ export function UserTests() {
 
   if (isSuccess) {
     return (
-      <div className={s.wrapper}>
+      <div className={s.wrapper_userTests}>
         <div className={s.titleCard}>Пройденные</div>
         <ul className={s.list}>{specificPassedTests.map(renderTest)}</ul>
         <div className={s.titleCard}>В процессе</div>
@@ -154,7 +154,7 @@ export function UserTests() {
     );
   }
   return (
-    <div className={s.wrapper}>
+    <div className={s.wrapper_userTests}>
       <div className={s.titleCard}>Рекомендуемые</div>
       <ul className={s.list}>
         {recommendedTests.map((card) => (

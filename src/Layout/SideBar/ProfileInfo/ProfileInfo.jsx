@@ -37,7 +37,7 @@ export function ProfileInfo({ toggleProfilePage }) {
   const age = calculateAge(data.birth_date);
 
   return (
-    <div className={s.wrapper}>
+    <div className={s.wrapper_profileInfo}>
       <div className={s.avatarContainer}>
         <img src={avatarSrc} alt='avatar' className={s.avatar} />
       </div>

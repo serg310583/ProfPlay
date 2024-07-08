@@ -16,3 +16,13 @@ $desktop: 1200px;
 
 //animation
 $transition: all 0.5s ease;
+
+/*
+font-size
+*/
+$fz12-9: clamp(0.5625rem, 0.4943rem + 0.3409vw, 0.75rem);
+$fz16-9: clamp(0.5625rem, 0.4034rem + 0.7955vw, 1rem);
+$fz16-12: clamp(0.75rem, 0.6591rem + 0.4545vw, 1rem);
+$fz18-12: clamp(0.75rem, 0.6136rem + 0.6818vw, 1.125rem);
+$fz24-12: clamp(0.75rem, 0.4773rem + 1.3636vw, 1.5rem);
+$fz40-16: clamp(1rem, 0.4545rem + 2.7273vw, 2.5rem);

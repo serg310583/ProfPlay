@@ -31,9 +31,9 @@ export function SideBar({ toggleAwardsPage, toggleProfilePage }) {
   };
 
   return (
-    <aside>
+    <aside className={s.sideBarLayout}>
       {auth.currentUser ? (
-        <div className={s.wrapper}>
+        <div className={s.wrapper_sideBar}>
           <ProfileInfo toggleProfilePage={toggleProfilePage} />
           <div className={s.buttons}>
             <button onClick={toggleProfilePage} className={s.profilesetting}>
@@ -59,7 +59,7 @@ export function SideBar({ toggleAwardsPage, toggleProfilePage }) {
           <hr className={s.divider} />
         </div>
       ) : (
-        <div className={s.wrapper}>
+        <div className={s.wrapper_sideBar}>
           <div className={s.unregText}>
             <p>
               Чтобы не потерять результаты тестов и полученные награды,
