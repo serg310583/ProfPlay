@@ -6,6 +6,7 @@ export function ProfileSettings({ setIsActiveProfile }) {
   return (
     <div className={s.profileSettings}>
       <div className={s.buttonCloseContainer}>
+        <div className={s.titleWindowProfile}>Настройка профиля</div>
         <Close onClick={() => setIsActiveProfile(false)} className={s.button} />
       </div>
 

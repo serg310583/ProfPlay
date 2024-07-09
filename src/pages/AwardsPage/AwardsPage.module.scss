@@ -10,14 +10,14 @@
   margin-right: 10px;
   margin-bottom: 20px;
   color: $white;
-  font-size: 18px;
+  font-size: $fz18-12;
   font-weight: 700;
   line-height: 21.78px;
   text-align: left;
 }
 .totalScore {
   margin-right: 10px;
-  font-size: 40px;
+  font-size: $fz40-16;
   color: $yellow;
   font-weight: 700;
   line-height: 48.41px;
@@ -51,9 +51,12 @@
   align-items: center;
   justify-content: center;
   gap: 8px;
-  font-size: 18px;
+  font-size: $fz18-12;
   text-align: center;
   color: #fff2cb;
+}
+.textShop {
+  font-size: $fz16-12;
 }
 @media (min-width: 480px) and (max-width: 1200px) {
   .buttonCloseContainer {
@@ -61,20 +64,13 @@
   }
   .titleAwards {
     margin-bottom: 20px;
-    font-size: 16px;
   }
-  .totalScore {
-    font-size: 30px;
-  }
+
   .listItem {
     width: 60px;
     height: 94px;
     margin-right: 10px;
     margin-bottom: 10px;
-  }
-  .listItem {
-    width: 60px;
-    height: 94px;
   }
   .imageContainer {
     width: 60px;
@@ -91,10 +87,31 @@
     align-items: center;
     justify-content: center;
     gap: 8px;
-    font-size: 18px;
     text-align: center;
     color: #fff2cb;
   }
 }
 @media (min-width: 320px) and (max-width: 479px) {
+  .buttonCloseContainer {
+    margin-bottom: 0px;
+  }
+  .coin {
+    height: 16px;
+  }
+  .coinInCard {
+    height: 16px;
+  }
+  .list {
+    gap: 14px;
+    margin-bottom: 28px;
+  }
+  .listItem {
+    width: 58px;
+    height: 77px;
+  }
+  .imageContainer {
+    width: 54px;
+    height: 54px;
+    margin-bottom: 4px;
+  }
 }

@@ -11,7 +11,7 @@
   cursor: pointer;
   outline: none;
   border: none;
-  font-size: 18px;
+  font-size: $fz18-12;
   transition: $transition;
   &:hover {
     background-color: $black;
@@ -21,15 +21,5 @@
     background-color: $black;
     opacity: 0.3;
     color: $white;
-  }
-}
-@media (min-width: 480px) and (max-width: 1200px) {
-  .button {
-    font-size: 12px;
-  }
-}
-@media (min-width: 320px) and (max-width: 479px) {
-  .button {
-    font-size: 12px;
   }
 }

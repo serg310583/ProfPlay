@@ -38,11 +38,16 @@ export function ModalAward() {
 
           <div className={styles.awardContainer}>
             <img src={awardInfo?.data.image} alt='award' />
+            <img
+              src={'/assets/icons/awards/Component1.png'}
+              alt='ok'
+              className={styles.okImage}
+            />
           </div>
           <p className={styles.description}>{awardInfo?.data.description}</p>
           <p className={styles}>
             Получено{' '}
-            <span className={styles.accent}>{awardInfo?.data.rank}</span>баллов
+            <span className={styles.accent}>{awardInfo?.data.rank}</span> баллов
           </p>
           <button
             onClick={handleCloseAndRedirect}

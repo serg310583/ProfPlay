@@ -2,5 +2,11 @@
 .buttonCloseContainer {
   width: 100%;
   display: flex;
-  justify-content: end;
+  justify-content: space-between;
+}
+.titleWindowProfile {
+  color: #969b9e;
+  font-size: $fz18-12;
+  font-weight: 700;
+  line-height: 24px;
 }

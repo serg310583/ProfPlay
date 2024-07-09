@@ -48,7 +48,11 @@ export function AwardsPage({ setIsActive }) {
           <div className={s.scoreContainer}>
             <span className={s.titleAwards}>Баллы</span>
             <span className={s.totalScore}>{totalRank}</span>
-            <img src='/assets/icons/Ellipse.svg' alt='coins' />
+            <img
+              src='/assets/icons/Ellipse.svg'
+              alt='coins'
+              className={s.coin}
+            />
           </div>
           <Close onClick={() => setIsActive(false)} />
         </div>
@@ -67,7 +71,11 @@ export function AwardsPage({ setIsActive }) {
                   </div>
                   <span className={s.titleAward}>
                     {award.data.achievement.data.rank}
-                    <img src='/assets/icons/Ellipse2.svg' alt='coins' />
+                    <img
+                      src='/assets/icons/Ellipse2.svg'
+                      alt='coins'
+                      className={s.coinInCard}
+                    />
                   </span>
                 </li>
               ))}
@@ -96,7 +104,9 @@ export function AwardsPage({ setIsActive }) {
           </div>
           <div className={s.shop}>
             <h4 className={s.titleAwards}>Магазин баллов</h4>
-            <span>Товары ещё в разработке, но ждать осталось недолго</span>
+            <span className={s.textShop}>
+              Товары ещё в разработке, но ждать осталось недолго
+            </span>
           </div>
         </div>
       </div>

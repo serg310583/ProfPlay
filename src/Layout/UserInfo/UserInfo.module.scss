@@ -68,6 +68,8 @@
       .profileMain {
         .awardsWindow,
         .ProfileSettingsWindow {
+          border-top: 1px solid white;
+
           top: 0px;
           height: calc(100vh - 66px);
           padding: 20px 10px;

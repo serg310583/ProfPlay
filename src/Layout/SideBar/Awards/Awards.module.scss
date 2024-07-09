@@ -113,4 +113,43 @@
   .noAward {
     display: none;
   }
+  .awards {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 66px;
+    margin-left: 10px;
+  }
+
+  .divider {
+    display: none;
+  }
+  .title {
+    display: none;
+  }
+  .award {
+    margin-bottom: 0;
+    margin-right: 0;
+    .list {
+      li:not(:last-child) {
+        margin-right: 10px;
+      }
+      .listItem {
+        width: 24px;
+        height: 24px;
+        margin-right: 5px;
+
+        .imageContainer {
+          height: 24px;
+          width: 24px;
+        }
+      }
+    }
+  }
+  .text {
+    margin: 0;
+  }
+  .awardDescription {
+    display: none;
+  }
 }

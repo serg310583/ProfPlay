@@ -60,6 +60,7 @@
     font-weight: 700;
     margin-bottom: 4px;
   }
+  .birthDateTitle,
   .birthDate,
   .userName {
     font-weight: 400;
@@ -67,21 +68,39 @@
 }
 
 @media (min-width: 320px) and (max-width: 479px) {
+  .wrapper_profileInfo {
+    width: 80%;
+    height: 66px;
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+  }
   .avatarContainer {
-    display: none;
+    width: 66px;
+    height: 66px;
+    margin-right: 10px;
+    align-self: auto;
   }
   .avatar {
-    display: none;
+  }
+  .profileInfoSetting {
+    height: 66px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-top: 0px;
   }
   .mobileButton {
     width: 100%;
-    height: 24px;
+    height: 66px;
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
     align-items: center;
     background-color: inherit;
     border: none;
     align-self: end;
+    margin-right: 10px;
   }
   .logOut,
   .settingsProfile {
@@ -90,12 +109,16 @@
     width: 24px;
     height: 24px;
   }
+  .mobileUserInfo {
+  }
 
   .userinfo {
-    display: none;
+    font-weight: 700;
+    margin-bottom: 0;
   }
-  .birthDate,
-  .userName {
-    font-weight: 400;
+
+  .userName,
+  .birthDateTitle {
+    display: none;
   }
 }

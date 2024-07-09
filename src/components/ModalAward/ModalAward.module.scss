@@ -37,11 +37,17 @@
   margin-bottom: 40px;
 }
 .awardContainer {
+  position: relative;
   width: 174px;
   height: 174px;
   object-fit: cover;
   img {
     width: 100%;
+  }
+  .okImage {
+    position: absolute;
+    width: 32px;
+    height: 32px;
   }
 }
 .description {

@@ -1,21 +1,19 @@
 @import './../../../SCSS/variables.scss';
 .avatarBlock {
   width: 100%;
-  height: 250px;
+  height: auto;
 }
-
 .avatarGrid {
+  width: 100%;
   display: flex;
   gap: 20px;
 }
 .avatarWrapper {
   display: flex;
-  width: 183px;
-  height: 208px;
+  width: clamp(4rem, 13.523vw + 1.295rem, 11.438rem);
+  height: clamp(5.25rem, 14.091vw + 2.432rem, 13rem);
   justify-content: center;
   align-items: center;
-  gap: 10px;
-  flex-shrink: 0;
   border-radius: 12px;
   border: 1px solid transparent;
   background: rgba(255, 255, 255, 0.3);
@@ -24,35 +22,32 @@
 .avatarWrapper.selected {
   border: 1px solid $yellow;
 }
-
 .avatarOption {
   position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
 }
-
 .avatarImage {
-  width: 95px;
-  height: 95px;
+  width: 80%;
+  height: auto;
   border-radius: 30px;
 }
-
 .avatarRank {
   margin-top: 5px;
-  font-size: 18px;
+  font-size: $fz16-9;
   color: #ffffff80;
 }
 .avatarRank.selected {
   color: $yellow;
 }
-@media (min-width: 480px) and (max-width: 1200px) {
+@media (min-width: 320px) and (max-width: 1200px) {
   .avatarBlock {
-    width: 269px;
-    height: 250px;
+    width: 100%;
   }
   .avatarGrid {
-    width: 269px;
-    overflow-x: scroll;
+    overflow-x: auto;
   }
-}
-@media (min-width: 320px) and (max-width: 479px) {
 }

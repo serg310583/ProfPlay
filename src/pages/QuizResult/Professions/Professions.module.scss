@@ -16,11 +16,18 @@
       display: flex;
       width: 100%;
       text-align: left;
-      font-weight: 400;
-      font-size: 18px;
-      line-height: normal;
-      color: $black;
+
       list-style: disc;
+      .linkToWindowProfession {
+        text-decoration: none;
+        color: $black;
+        font-weight: 400;
+        font-size: 18px;
+        line-height: normal;
+        &:hover {
+          color: $blue;
+        }
+      }
       .inRow {
         display: flex;
         a {

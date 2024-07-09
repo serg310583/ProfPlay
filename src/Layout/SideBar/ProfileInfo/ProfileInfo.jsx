@@ -57,15 +57,14 @@ export function ProfileInfo({ toggleProfilePage }) {
             />
           </button>
         </div>
-
+      </div>
+      <div className={s.mobileUserInfo}>
         <p className={s.userinfo}>
           <span className={s.userName}>Имя: </span>
           {data.first_name || '-'}
         </p>
-      </div>
-      <div>
         <p className={s.userinfo}>
-          <span className={s.birthDate}>Возраст: </span> {age}
+          <span className={s.birthDateTitle}>Возраст: </span> {age}
           <span className={s.birthDate}> лет</span>
         </p>
       </div>
