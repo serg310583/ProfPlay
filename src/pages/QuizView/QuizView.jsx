@@ -1,35 +1,22 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useMemo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useLocation, useNavigate } from 'react-router-dom';
-import LoaderQuiz from '../../components/UIcomponents/Loaders/LoaderQuiz';
-import { selectAllAwardsOrgData } from '../../core/store/reducers/AllAwardsOrg/slice';
 import { openAwardModal } from '../../core/store/reducers/Modal/ModalAwardsSlice';
 import { addAchiv } from '../../core/store/reducers/achiver';
 import {
   fetchGetAnswers,
   fetchPostAnswers,
   fetchPutAnswers,
-  selectAnswersData,
-  selectAnswersLoading,
 } from '../../core/store/reducers/answers';
-import { AwardState } from '../../core/store/reducers/awardsUser';
-import {
-  fetchGetQuiz,
-  selectQuizData,
-  selectQuizLoading,
-} from '../../core/store/reducers/quiz';
+import s from './QuizView.module.scss';
+import { fetchGetQuiz } from '../../core/store/reducers/quiz';
 import {
   decrementStep,
   incrementStep,
   resetStep,
-  selectStep,
   setStep,
 } from '../../core/store/reducers/step';
-import { selectAllTests } from '../../core/store/reducers/testsSlice';
-import {
-  fetchQuizzesUser,
-  selectQuizzesData,
-} from '../../core/store/reducers/testsUser';
+import { fetchQuizzesUser } from '../../core/store/reducers/testsUser';
 import { idAwards } from '../../core/variables';
 import { HolandRender } from './QuizHoland/HolandRender';
 import { KlimovRender } from './QuizKlimov/KlimovRender';
@@ -39,14 +26,20 @@ export function QuizView() {
   const dispatch = useDispatch();
   const location = useLocation();
   const navigate = useNavigate();
-  const isLoadingQuiz = useSelector(selectQuizLoading);
-  const step = useSelector(selectStep);
-  const quizData = useSelector(selectQuizData);
-  const answerData = useSelector(selectAnswersData);
-  const isLoadingAnswers = useSelector(selectAnswersLoading);
+
+  const isLoadingQuiz = useSelector((state) => state.quiz.isLoading);
+  const quizData = useSelector((state) => state.quiz.data);
+  const step = useSelector((state) => state.step.step);
+  const answerData = useSelector((state) => state.answers.answer);
+  const isLoadingAnswers = useSelector((state) => state.answers.isLoading);
   const isAwardModalVisible = useSelector(
     (state) => state.awardModal.isAwardModalVisible
   );
+  const userTestsData = useSelector((state) => state.quizzes.data);
+  const allTests = useSelector((state) => state.tests.allTests);
+  const allAwardsOrg = useSelector((state) => state.allAwardsOrg.data);
+  const awards = useSelector((state) => state.awards.data); // награды уже полученные
+
   const params = new URLSearchParams(location.search);
   const idAnswers = params.get('answerId');
   const address = parseInt(params.get('id'), 10) || 1;
@@ -58,8 +51,7 @@ export function QuizView() {
   const [selectedAnswers, setSelectedAnswers] = useState([]); // объект со значениями выбранных ответов для их отображения
   const userId =
     localStorage.getItem('userId') || localStorage.getItem('user_id');
-  const allAwardsOrg = useSelector(selectAllAwardsOrgData);
-  const awards = useSelector(AwardState).data; // награды уже полученные
+
   const hasAward = awards.some(
     (award) => award.data.achievement.id === idAwards.firstStep
   ); //проверяем есть ли награда у пользователя
@@ -67,18 +59,16 @@ export function QuizView() {
   const idAwardFirstStep = idAwards.firstStep;
   const idAwardAllTests = idAwards.allTests;
 
-  const infoModalFirstStep = allAwardsOrg.find(
-    (award) => award.id === idAwardFirstStep
+  const infoModalFirstStep = useMemo(() =>
+    allAwardsOrg.find((award) => award.id === idAwardFirstStep, [allAwardsOrg])
   );
-  const infoModalAllTests = allAwardsOrg.find(
-    (award) => award.id === idAwardAllTests
+  const infoModalAllTests = useMemo(() =>
+    allAwardsOrg.find((award) => award.id === idAwardAllTests, [allAwardsOrg])
   );
 
-  const userTestsData = useSelector(selectQuizzesData);
   const passedTests = userTestsData.filter((test) => test.is_passed === true);
   const passedTestIds = passedTests.map((test) => test.pollId);
   const uniquePassedTestIds = [...new Set(passedTestIds)];
-  const allTests = useSelector(selectAllTests);
   const totalTestsCount = allTests.length;
   const passedTestsCount = uniquePassedTestIds.length;
   const hasCompletedAllTests = passedTestsCount + 1 === totalTestsCount;
@@ -345,12 +335,8 @@ export function QuizView() {
       dispatch(decrementStep());
     }
   };
-  if (isLoadingQuiz || isLoadingAnswers) {
-    return (
-      <div>
-        <LoaderQuiz />
-      </div>
-    ); // Или индикатор загрузки
+  if (isLoadingQuiz) {
+    return <div className={s.loaderWindow}>Загрузка теста...</div>; // Или индикатор загрузки
   }
   const quizHoland = 'quizHoland';
   const quizKlimov = 'quizKlimov';

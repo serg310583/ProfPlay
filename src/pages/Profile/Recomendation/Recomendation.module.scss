@@ -1,9 +1,10 @@
 @import './../../../SCSS/variables.scss';
 .wrapperRecomedation {
   background-color: $white;
-  min-height: calc(100vh - 190px);
+  height: calc(100vh - 190px);
   border: 1px solid $grey-bg;
   padding: 40px;
+  overflow-y: auto;
 }
 .title {
   font-size: $fz18-12;

@@ -81,8 +81,6 @@
       margin-right: 20px;
       padding: 15px 20px 20px 20px;
       margin-bottom: 20px;
-      // width: 386px;
-      // height: 269px;
       border: 1px solid $grey-bg;
       border-radius: 30px;
       list-style: none;
@@ -164,6 +162,7 @@
       .listItemRecom {
         padding: 16px 10px 24px 10px;
         margin-bottom: 15px;
+        margin-right: 0;
         // width: 273px;
         // height: 206px;
         .title {
@@ -220,8 +219,8 @@
       .listItemRecom {
         padding: 16px 10px 24px 10px;
         margin-bottom: 15px;
-        width: 273px;
-        height: 206px;
+        margin-right: 0;
+
         .title {
           font-size: 12px;
           font-weight: 700;

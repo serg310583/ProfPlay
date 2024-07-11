@@ -1,29 +1,29 @@
-import { createSlice } from '@reduxjs/toolkit'
+import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-	step: 0,
-}
+  step: 0,
+};
 
 const stepSlice = createSlice({
-	name: 'step',
-	initialState,
-	reducers: {
-		setStep: (state, action) => {
-			state.step = action.payload
-		},
-		incrementStep: (state) => {
-			state.step += 1
-		},
-		decrementStep: (state) => {
-			state.step -= 1
-		},
-		resetStep: () => initialState,
-	},
-})
+  name: 'step',
+  initialState,
+  reducers: {
+    setStep: (state, action) => {
+      state.step = action.payload;
+    },
+    incrementStep: (state) => {
+      state.step += 1;
+    },
+    decrementStep: (state) => {
+      state.step -= 1;
+    },
+    resetStep: () => initialState,
+  },
+});
 
 export const { resetStep, setStep, incrementStep, decrementStep } =
-	stepSlice.actions
+  stepSlice.actions;
 
-export const selectStep = (state) => state.step.step
+export const selectStep = (state) => state.step.step;
 
-export default stepSlice.reducer
+export default stepSlice.reducer;

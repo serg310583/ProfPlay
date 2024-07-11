@@ -2,7 +2,8 @@
 .wrapper {
   background-color: $white;
   padding: 40px;
-  min-height: calc(100vh - 190px);
+  height: calc(100vh - 190px);
+  overflow-y: auto;
   border: 1px solid $grey-bg;
 }
 .list {

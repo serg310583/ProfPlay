@@ -1,5 +1,5 @@
-import styles from './LoaderQuiz.module.scss';
+import s from './LoaderQuiz.module.scss';
 function LoaderQuiz() {
-  return <span className={styles.loader}></span>;
+  return <span className={s.loader}></span>;
 }
 export default LoaderQuiz;

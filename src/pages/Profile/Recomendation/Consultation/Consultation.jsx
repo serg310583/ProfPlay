@@ -27,7 +27,9 @@ export function Consultation() {
       </p>
       <div className={s.priceBlock}>
         <span className={s.price}>3000 ₽</span>{' '}
-        <span className={s.textPrice}>за сессию *возможна оплата баллами</span>
+        <span className={s.textPrice}>
+          за сессию <br /> *возможна оплата баллами
+        </span>
       </div>
       <div className={s.buttonContainer}>
         <Link

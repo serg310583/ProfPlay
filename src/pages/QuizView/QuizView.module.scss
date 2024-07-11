@@ -71,6 +71,13 @@
     }
   }
 }
+.loaderWindow {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+}
 @media (min-width: 480px) and (max-width: 1200px) {
   .wrapper {
     width: 382px;
