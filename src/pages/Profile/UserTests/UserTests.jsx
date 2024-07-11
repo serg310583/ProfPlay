@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import { useEffect } from 'react';
+import { useEffect, useMemo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { selectAllTests } from '../../../core/store/reducers/testsSlice';
@@ -12,32 +12,33 @@ import s from './UserTests.module.scss';
 export function UserTests() {
   const currentDomain = window.location.origin;
   const dispatch = useDispatch();
-  const userId = localStorage.getItem('user_id');
+  const userId =
+    localStorage.getItem('userId') || localStorage.getItem('user_id');
+
   useEffect(() => {
     if (userId) {
       dispatch(fetchQuizzesUser(userId));
     }
   }, [userId, dispatch]);
+
   const allTests = useSelector(selectAllTests);
-
   const { data, isLoading, isSuccess } = useSelector(StateQuizzes);
-  const specificTestIds = [
-    '56eaa6fd-0cd9-4d4e-8a58-15b33fdcd7a5',
-    '1b580385-8d6c-4532-b3bf-4ed105afa732',
-    '944c919d-3294-4048-b342-c8408667d9d3',
-  ];
 
-  const passedTests = data.filter((test) => test.is_passed === true);
-  const unPassedTests = data.filter((test) => test.is_passed !== true);
-
+  //Функция для получения завершенных пользователем тестов
+  const passedTests = useMemo(
+    () => data.filter((test) => test.is_passed === true),
+    [data]
+  );
+  //Функция для получения незавершенных пользователем тестов
+  const unPassedTests = useMemo(
+    () => data.filter((test) => test.is_passed !== true),
+    [data]
+  );
   // Функция для получения последних результатов по дате для каждого указанного теста
   const getLastResults = (tests) => {
-    const filteredTests = tests.filter((test) =>
-      specificTestIds.includes(test.pollId)
-    );
     const latestTests = {};
 
-    filteredTests.forEach((test) => {
+    tests.forEach((test) => {
       if (
         !latestTests[test.pollId] ||
         new Date(test.created_date) >
@@ -72,7 +73,7 @@ export function UserTests() {
 
   if (isLoading) {
     return (
-      <div className={s.wrapper}>
+      <div className={s.wrapper_userTests}>
         <p className={s.titleCard}>Загрузка...</p>
       </div>
     );
@@ -126,9 +127,19 @@ export function UserTests() {
     return (
       <div className={s.wrapper_userTests}>
         <div className={s.titleCard}>Пройденные</div>
-        <ul className={s.list}>{specificPassedTests.map(renderTest)}</ul>
+        {specificPassedTests.length == 0 ? (
+          '-'
+        ) : (
+          <ul className={s.list}>{specificPassedTests.map(renderTest)}</ul>
+        )}
+
         <div className={s.titleCard}>В процессе</div>
-        <ul className={s.list}>{specificUnpassedTests.map(renderTest)}</ul>
+        {specificUnpassedTests.length == 0 ? (
+          '-'
+        ) : (
+          <ul className={s.list}>{specificUnpassedTests.map(renderTest)}</ul>
+        )}
+
         <div className={s.titleCard}>Рекомендуемые</div>
         <ul className={s.list}>
           {recommendedTests.map((card) => (
@@ -153,29 +164,4 @@ export function UserTests() {
       </div>
     );
   }
-  return (
-    <div className={s.wrapper_userTests}>
-      <div className={s.titleCard}>Рекомендуемые</div>
-      <ul className={s.list}>
-        {recommendedTests.map((card) => (
-          <li key={card.id} className={s.listItemRecom}>
-            <div className={s.time}>~10 минут</div>
-            <p className={s.title}>
-              {card.title} <br />
-              {card.subtitle && <span>{card.subtitle}</span>}
-            </p>
-            <ul>
-              {card.recommendations.map((rec, index) => (
-                <li key={index}>{rec}</li>
-              ))}
-            </ul>
-
-            <Link className={s.link} to={`${card.link}`}>
-              Пройти тест
-            </Link>
-          </li>
-        ))}
-      </ul>
-    </div>
-  );
 }

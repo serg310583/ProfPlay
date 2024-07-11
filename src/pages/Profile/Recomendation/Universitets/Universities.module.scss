@@ -1,0 +1,19 @@
+.universitiesWrapper {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: 1fr 1fr;
+}
+.universitiesCard {
+  width: 100%;
+}
+.imageCard {
+  width: 100%;
+  object-fit: cover;
+}
+@media (min-width: 320px) and (max-width: 1200px) {
+  .universitiesWrapper {
+    display: grid;
+    gap: 16px;
+    grid-template-columns: 1fr;
+  }
+}

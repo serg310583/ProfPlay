@@ -1,5 +1,6 @@
 @import './../../../SCSS/variables.scss';
 .wrapper_userTests {
+  width: 100%;
   background-color: $white;
   height: calc(100vh - 190px);
   border: 1px solid $grey-bg;
@@ -23,6 +24,7 @@
       display: flex;
       flex-direction: column;
       justify-content: space-between;
+      margin-right: 20px;
       padding: 10px;
 
       border-radius: 30px;
@@ -76,7 +78,11 @@
       flex-direction: column;
       justify-content: space-between;
       background-color: $bg-test;
+      margin-right: 20px;
       padding: 15px 20px 20px 20px;
+      margin-bottom: 20px;
+      // width: 386px;
+      // height: 269px;
       border: 1px solid $grey-bg;
       border-radius: 30px;
       list-style: none;
@@ -158,6 +164,8 @@
       .listItemRecom {
         padding: 16px 10px 24px 10px;
         margin-bottom: 15px;
+        // width: 273px;
+        // height: 206px;
         .title {
           font-weight: 700;
 
@@ -212,7 +220,7 @@
       .listItemRecom {
         padding: 16px 10px 24px 10px;
         margin-bottom: 15px;
-        // width: 273px;
+        width: 273px;
         height: 206px;
         .title {
           font-size: 12px;

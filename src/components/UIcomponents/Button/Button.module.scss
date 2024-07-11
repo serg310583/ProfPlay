@@ -13,6 +13,7 @@
   border: none;
   font-size: $fz18-12;
   transition: $transition;
+  border: 1px solid $black-2;
   &:hover {
     background-color: $black;
     color: $yellow;
