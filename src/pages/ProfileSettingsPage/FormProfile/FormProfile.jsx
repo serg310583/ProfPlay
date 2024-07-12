@@ -12,11 +12,10 @@ import locale from 'antd/es/date-picker/locale/ru_RU.js';
 import moment from 'moment';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectInfoUserData } from '../../../core/store/reducers/infoUser';
 import {
-  fetchGetInfoUser,
-  fetchPatchInfoUser,
-  fetchPostInfoUser,
+  fetchGetProfileUser,
+  fetchPatchProfileUser,
+  fetchPostProfileUser,
 } from '../../../core/store/reducers/profileUser';
 import Avatars from '../Avatar/Avatar';
 
@@ -28,7 +27,7 @@ export function FormProfile() {
   const dateFormat = 'DD.MM.YYYY';
   const [form] = Form.useForm();
   const dispatch = useDispatch();
-  const userData = useSelector(selectInfoUserData);
+  const userData = useSelector((state) => state.profileUser.data);
   const account_id =
     localStorage.getItem('user_id') || localStorage.getItem('userId');
   const projectId = ids.project_id;
@@ -63,10 +62,10 @@ export function FormProfile() {
     try {
       let resultAction;
       if (!userData.profile_id) {
-        resultAction = await dispatch(fetchPostInfoUser(formattedValues));
+        resultAction = await dispatch(fetchPostProfileUser(formattedValues));
       } else {
         resultAction = await dispatch(
-          fetchPatchInfoUser({
+          fetchPatchProfileUser({
             userId: account_id,
             values: formattedValues,
           })
@@ -75,7 +74,7 @@ export function FormProfile() {
 
       const originalPromiseResult = unwrapResult(resultAction);
       // Если запрос успешен, отправляем запрос на получение обновленных данных
-      await dispatch(fetchGetInfoUser(account_id));
+      await dispatch(fetchGetProfileUser(account_id));
     } catch (err) {
       // Обработка ошибки
       console.error('Ошибка при отправке данных профиля:', err);

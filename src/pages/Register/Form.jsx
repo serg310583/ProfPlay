@@ -7,7 +7,7 @@ import { openAwardModal } from '../../core/store/reducers/Modal/ModalAwardsSlice
 import { addAchiv } from '../../core/store/reducers/achiver';
 import { register, selectAuthLoading } from '../../core/store/reducers/auth';
 import { fetchAwardUser } from '../../core/store/reducers/awardsUser';
-import { fetchInfoUser } from '../../core/store/reducers/infoUser';
+import { fetchGetProfileUser } from '../../core/store/reducers/profileUser.js';
 import { fetchQuizzesUser } from '../../core/store/reducers/testsUser';
 import ids, { idAwards } from './../../core/variables.js';
 import s from './Form.module.scss';
@@ -62,7 +62,7 @@ const FormRegistration = () => {
           dispatch(openAwardModal(infoModalRegistration));
           dispatch(fetchAwardUser(userId));
           dispatch(fetchQuizzesUser(userId));
-          dispatch(fetchInfoUser(userId));
+          dispatch(fetchGetProfileUser(userId));
           navigate('/profile/userTests');
         } else {
           console.error('Authentication failed');

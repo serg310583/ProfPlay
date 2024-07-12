@@ -6,8 +6,8 @@ const initialState = {
   data: [],
 };
 
-export const fetchGetInfoUser = createAsyncThunk(
-  'infoUser/getInfoUser',
+export const fetchGetProfileUser = createAsyncThunk(
+  'profileUser/getProfileUser',
   async (userId, thunkAPI) => {
     try {
       const response = await userApi.get(`/profile/${userId}`);
@@ -17,8 +17,8 @@ export const fetchGetInfoUser = createAsyncThunk(
     }
   }
 );
-export const fetchPostInfoUser = createAsyncThunk(
-  'infoUser/postInfoUser',
+export const fetchPostProfileUser = createAsyncThunk(
+  'profileUser/postProfileUser',
   async (values, thunkAPI) => {
     try {
       const response = await userApi.post(`/profile`, values);
@@ -28,8 +28,8 @@ export const fetchPostInfoUser = createAsyncThunk(
     }
   }
 );
-export const fetchPatchInfoUser = createAsyncThunk(
-  'infoUser/patchInfoUser',
+export const fetchPatchProfileUser = createAsyncThunk(
+  'profileUser/patchProfileUser',
   async ({ userId, values }, thunkAPI) => {
     try {
       const response = await userApi.patch(`/profile/${userId}`, values);
@@ -40,51 +40,47 @@ export const fetchPatchInfoUser = createAsyncThunk(
   }
 );
 
-const infoUserSlice = createSlice({
-  name: 'infoUser',
+const profileUserSlice = createSlice({
+  name: 'profileUser',
   initialState,
   extraReducers: (builder) => {
     builder
       //GET
-      .addCase(fetchGetInfoUser.pending, (state) => {
+      .addCase(fetchGetProfileUser.pending, (state) => {
         state.isLoading = true;
       })
-      .addCase(fetchGetInfoUser.fulfilled, (state, action) => {
+      .addCase(fetchGetProfileUser.fulfilled, (state, action) => {
         state.isLoading = false;
         state.data = action.payload;
       })
-      .addCase(fetchGetInfoUser.rejected, (state) => {
+      .addCase(fetchGetProfileUser.rejected, (state) => {
         state.isLoading = false;
       })
       //POST
-      .addCase(fetchPostInfoUser.pending, (state) => {
+      .addCase(fetchPostProfileUser.pending, (state) => {
         state.isLoading = true;
       })
-      .addCase(fetchPostInfoUser.fulfilled, (state, action) => {
+      .addCase(fetchPostProfileUser.fulfilled, (state, action) => {
         state.isLoading = false;
         state.isSuccess = true;
         state.data = action.payload;
       })
-      .addCase(fetchPostInfoUser.rejected, (state) => {
+      .addCase(fetchPostProfileUser.rejected, (state) => {
         state.isLoading = false;
       })
       //PATCH
-      .addCase(fetchPatchInfoUser.pending, (state) => {
+      .addCase(fetchPatchProfileUser.pending, (state) => {
         state.isLoading = true;
       })
-      .addCase(fetchPatchInfoUser.fulfilled, (state, action) => {
+      .addCase(fetchPatchProfileUser.fulfilled, (state, action) => {
         state.isLoading = false;
         state.isSuccess = true;
         state.data = action.payload;
       })
-      .addCase(fetchPatchInfoUser.rejected, (state) => {
+      .addCase(fetchPatchProfileUser.rejected, (state) => {
         state.isLoading = false;
       });
   },
 });
-export const StateInfoUserData = (state) => state.infoUser;
 
-export const selectInfoUserData = (state) => state.infoUser.data;
-export const selectInfoUserLoading = (state) => state.infoUser.isLoading;
-export const selectInfoUserSuccess = (state) => state.infoUser.isSuccess;
-export default infoUserSlice.reducer;
+export default profileUserSlice.reducer;

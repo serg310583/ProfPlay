@@ -3,22 +3,18 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { logout } from '../../../core/store/reducers/auth';
-import {
-  fetchInfoUser,
-  selectInfoUserData,
-  selectInfoUserLoading,
-} from '../../../core/store/reducers/infoUser';
+import { fetchGetProfileUser } from '../../../core/store/reducers/profileUser';
 import s from './ProfileInfo.module.scss';
 
 export function ProfileInfo({ toggleProfilePage }) {
   const userId = localStorage.getItem('user_id');
   const dispatch = useDispatch();
-  const data = useSelector(selectInfoUserData);
-  const isLoading = useSelector(selectInfoUserLoading);
+  const data = useSelector((state) => state.profileUser.data);
+  const isLoading = useSelector((state) => state.profileUser.isLoading);
 
   useEffect(() => {
     if (userId) {
-      dispatch(fetchInfoUser(userId));
+      dispatch(fetchGetProfileUser(userId));
     }
   }, [userId, dispatch]);
 

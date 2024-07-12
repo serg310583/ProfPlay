@@ -6,8 +6,7 @@ import achiver from './store/reducers/achiver';
 import answersSlice from './store/reducers/answers';
 import auth from './store/reducers/auth';
 import awardsSlice from './store/reducers/awardsUser';
-import infoUserSlice from './store/reducers/infoUser';
-import profileUser from './store/reducers/profileUser';
+import profileUserSlice from './store/reducers/profileUser';
 import quizSlice from './store/reducers/quiz';
 import step from './store/reducers/step';
 import testsSlice from './store/reducers/testsSlice';
@@ -19,8 +18,7 @@ const rootReducer = combineReducers({
   tests: testsSlice,
   awards: awardsSlice,
   quizzes: quizzesSlice,
-  infoUser: infoUserSlice,
-  profileUser: profileUser,
+  profileUser: profileUserSlice,
   quiz: quizSlice,
   step: step,
   answers: answersSlice,
@@ -30,4 +28,3 @@ const rootReducer = combineReducers({
 });
 
 export default rootReducer;
-// здесь слайсы (состояния)

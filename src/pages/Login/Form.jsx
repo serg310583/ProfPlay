@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { login, selectAuthLoading } from '../../core/store/reducers/auth';
 import { fetchAwardUser } from '../../core/store/reducers/awardsUser';
-import { fetchInfoUser } from '../../core/store/reducers/infoUser';
+import { fetchGetProfileUser } from '../../core/store/reducers/profileUser';
 import { fetchQuizzesUser } from '../../core/store/reducers/testsUser';
 import s from './Form.module.scss';
 
@@ -21,7 +21,7 @@ const FormLogin = () => {
           localStorage.setItem('user_id', userId);
           dispatch(fetchAwardUser(userId));
           dispatch(fetchQuizzesUser(userId));
-          dispatch(fetchInfoUser(userId));
+          dispatch(fetchGetProfileUser(userId));
           navigate('/profile/userTests');
         } else {
           console.error('Authentication failed');
