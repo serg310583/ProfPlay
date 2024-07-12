@@ -1,4 +1,4 @@
-import { useEffect, useState, useMemo } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { openAwardModal } from '../../core/store/reducers/Modal/ModalAwardsSlice';
@@ -8,7 +8,6 @@ import {
   fetchPostAnswers,
   fetchPutAnswers,
 } from '../../core/store/reducers/answers';
-import s from './QuizView.module.scss';
 import { fetchGetQuiz } from '../../core/store/reducers/quiz';
 import {
   decrementStep,
@@ -18,9 +17,13 @@ import {
 } from '../../core/store/reducers/step';
 import { fetchQuizzesUser } from '../../core/store/reducers/testsUser';
 import { idAwards } from '../../core/variables';
+import { generateSessionId } from '../../utils/generateUUID';
+import { getQuizUrl } from '../../utils/getURL';
+import { processAnswers } from '../../utils/processAnswer';
 import { HolandRender } from './QuizHoland/HolandRender';
 import { KlimovRender } from './QuizKlimov/KlimovRender';
 import { OvcharovaRender } from './QuizOvcharova/OvcharovaRender';
+import s from './QuizView.module.scss';
 
 export function QuizView() {
   const dispatch = useDispatch();
@@ -49,6 +52,7 @@ export function QuizView() {
   const [isOpen, setIsOpen] = useState(false); //состояние модального окна
   const [question, setQuestion] = useState([]); //состояние вопроса теста для извлечения из него значений (id, value, image)
   const [selectedAnswers, setSelectedAnswers] = useState([]); // объект со значениями выбранных ответов для их отображения
+  const [sessionId, setSessionId] = useState('');
   const userId =
     localStorage.getItem('userId') || localStorage.getItem('user_id');
 
@@ -109,31 +113,12 @@ export function QuizView() {
   }
   //замена id из URL на id теста
   useEffect(() => {
-    let listUrl = '';
-    if (address === 1) {
-      listUrl = `/polls/944c919d-3294-4048-b342-c8408667d9d3`;
-    } else if (address === 2) {
-      listUrl = `/polls/1b580385-8d6c-4532-b3bf-4ed105afa732`;
-    } else if (address === 3) {
-      listUrl = `/polls/56eaa6fd-0cd9-4d4e-8a58-15b33fdcd7a5`;
-    }
-    setUrl(listUrl);
+    setUrl(getQuizUrl(address));
   }, [address]);
   //-----UUID---------
-  const [sessionId, setSessionId] = useState('');
+
   useEffect(() => {
-    const generateSessionId = () => {
-      return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(
-        /[xy]/g,
-        function (c) {
-          let r = (Math.random() * 16) | 0,
-            v = c === 'x' ? r : (r & 0x3) | 0x8;
-          return v.toString(16);
-        }
-      );
-    };
-    const newSessionId = generateSessionId();
-    setSessionId(newSessionId);
+    setSessionId(generateSessionId());
   }, []);
 
   //GET запрос теста
@@ -291,44 +276,25 @@ export function QuizView() {
   }, [quizData, step]);
 
   const onClickVariant = (answerId, answerValue, answerImage) => {
-    // Получаем userId из localStorage, если он существует, иначе используем sessionId
-    const userId =
-      localStorage.getItem('userId') ||
-      localStorage.getItem('user_id') ||
-      sessionId;
-    // Помещаем userId в localStorage для дальнейшего использования
-    localStorage.setItem('userId', userId);
-
-    const isAnswerAdded = answers.some(
-      (answer) => answer.questionId === quizData.questions[step].id
+    processAnswers(
+      quizData,
+      step,
+      answerId,
+      answerValue,
+      answerImage,
+      answers,
+      setAnswers,
+      setSelectedAnswers,
+      selectedAnswers,
+      sessionId
     );
-    if (!isAnswerAdded) {
-      const newAnswer = {
-        questionId: quizData.questions[step].id,
-        text: quizData.questions[step].text,
-        answer: [
-          {
-            id: answerId,
-            value: answerValue,
-            image: answerImage || null,
-          },
-        ],
-      };
-      setAnswers((prevAnswers) => [...prevAnswers, newAnswer]);
-    } else {
-      return;
-    }
     setTimeout(() => {
       if (step < testLength) {
         dispatch(incrementStep());
       }
-      const updatedSelectedAnswers = {
-        ...selectedAnswers,
-        [quizData.questions[step].id]: answerId,
-      };
-      setSelectedAnswers(updatedSelectedAnswers);
-    }, 300); // Устанавливаем задержку в 0,3 секунды
+    }, 300);
   };
+
   const onClickPrev = () => {
     answers.pop(); //удаляем из ответов последний ответ
     if (step !== 0) {
