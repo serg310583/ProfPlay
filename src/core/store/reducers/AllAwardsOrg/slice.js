@@ -3,7 +3,6 @@ import { fetchGetAllAwardsOrg } from './thunk';
 const initialState = {
   isLoading: false,
   isSuccess: false,
-  isError: false,
   data: [],
 };
 const AllAwardsOrgSlice = createSlice({
@@ -33,7 +32,6 @@ const AllAwardsOrgSlice = createSlice({
 
 export const StateAllAwardsOrg = (state) => state.allAwardsOrg;
 
-export const selectAllAwardsOrgError = (state) => state.allAwardsOrg.isError;
 export const selectAllAwardsOrgLoading = (state) =>
   state.allAwardsOrg.isLoading;
 export const selectAllAwardsOrgSuccess = (state) =>
