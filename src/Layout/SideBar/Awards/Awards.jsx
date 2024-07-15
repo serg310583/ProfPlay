@@ -11,7 +11,9 @@ export function Awards() {
   const dispatch = useDispatch();
   const { isLoading, isSuccess, data } = useSelector(AwardState);
   const [totalRank, setTotalRank] = useState(0);
-
+  const filteredData = data.filter(
+    (item) => item.data.tag === 'Achievement tag'
+  );
   const userId = localStorage.getItem('user_id');
 
   useEffect(() => {
@@ -40,7 +42,7 @@ export function Awards() {
     );
   }
   // Создаем копию массива и сортируем её по дате создания в порядке убывания, затем ограничиваем первыми двумя элементами
-  const sortedData = [...data].sort(
+  const sortedData = [...filteredData].sort(
     (a, b) => new Date(b.created_date) - new Date(a.created_date)
   );
   const limitedAwards = sortedData.slice(0, 2);

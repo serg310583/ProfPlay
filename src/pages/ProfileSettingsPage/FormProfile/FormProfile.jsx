@@ -10,7 +10,7 @@ import {
 } from 'antd';
 import locale from 'antd/es/date-picker/locale/ru_RU.js';
 import moment from 'moment';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectInfoUserData } from '../../../core/store/reducers/infoUser';
 import {
@@ -21,6 +21,8 @@ import {
 import Avatars from '../Avatar/Avatar';
 
 import { Calendar } from '../../../components/Calendar/Calendar.jsx';
+import { addAchiv } from '../../../core/store/reducers/achiver.js';
+import { fetchAwardUser } from '../../../core/store/reducers/awardsUser.js';
 import ids from './../../../core/variables.js';
 import s from './FormProfile.module.scss';
 
@@ -32,6 +34,11 @@ export function FormProfile() {
   const account_id =
     localStorage.getItem('user_id') || localStorage.getItem('userId');
   const projectId = ids.project_id;
+
+  const [selectedAvatarId, setSelectedAvatarId] = useState(null);
+  const handleAvatarSelect = (id) => {
+    setSelectedAvatarId(id);
+  };
 
   const handleFinish = async (values) => {
     const formattedValues = {
@@ -59,7 +66,12 @@ export function FormProfile() {
       account_id: account_id,
       project_id: projectId,
     };
-
+    dispatch(
+      addAchiv({
+        user_id: account_id,
+        achievement_id: selectedAvatarId,
+      })
+    );
     try {
       let resultAction;
       if (!userData.profile_id) {
@@ -76,6 +88,7 @@ export function FormProfile() {
       const originalPromiseResult = unwrapResult(resultAction);
       // Если запрос успешен, отправляем запрос на получение обновленных данных
       await dispatch(fetchGetInfoUser(account_id));
+      dispatch(fetchAwardUser(account_id));
     } catch (err) {
       // Обработка ошибки
       console.error('Ошибка при отправке данных профиля:', err);
@@ -147,7 +160,7 @@ export function FormProfile() {
             phoneValue: userData.phoneValue,
           }}
         >
-          <Avatars form={form} />
+          <Avatars form={form} onAvatarSelect={handleAvatarSelect} />
           <Form.Item
             className={s.input}
             name='first_name'
