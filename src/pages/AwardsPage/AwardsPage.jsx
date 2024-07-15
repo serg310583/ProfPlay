@@ -7,8 +7,9 @@ export function AwardsPage({ setIsActive }) {
   const isAwardLoading = useSelector((state) => state.awards.isLoading);
   const isAwardSuccess = useSelector((state) => state.awards.isSuccess);
   const awardData = useSelector((state) => state.awards.data);
+  console.log(awardData);
   const filteredAwardData = awardData.filter(
-    (item) => item.data.tag === 'Achievement tag'
+    (item) => item.data.achievement.data.tag === 'Achievement tag'
   ); //получаем только награды за что-то
 
   const isAllAwardsLoading = useSelector(
@@ -32,12 +33,14 @@ export function AwardsPage({ setIsActive }) {
   }, [awardData, isAwardSuccess]);
 
   const receivedAwardIds = new Set(
-    filteredAllAwardsData.map((award) => award.data.id)
+    filteredAwardData.map((award) => award.data.achievement.id)
   );
+  console.log(filteredAwardData);
 
   const upcomingAwards = filteredAllAwardsData.filter(
     (award) => !receivedAwardIds.has(award.id)
   );
+  console.log('предстоящие награды', upcomingAwards);
 
   if (isAwardLoading || isAllAwardsLoading) {
     return <div className={s.awards}>Загрузка...</div>;
