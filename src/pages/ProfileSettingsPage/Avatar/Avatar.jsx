@@ -10,8 +10,7 @@ const Avatars = ({ form, onAvatarSelect }) => {
   const allAwardOrg = useSelector((state) => state.allAwardsOrg.data);
   const avatars = allAwardOrg.filter((item) => item.data.tag === 'avatar');
   const [totalRank, setTotalRank] = useState(0);
-  console.log(totalRank);
-  console.log(selectedAvatar);
+
   useEffect(() => {
     // Вычисляем сумму всех значений rank
     const sumRank = awardData.reduce((total, award) => {

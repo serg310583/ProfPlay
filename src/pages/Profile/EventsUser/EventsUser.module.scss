@@ -1,5 +1,6 @@
 @import './../../../SCSS/variables.scss';
 .wrapper {
+  width: 100%;
   background-color: $white;
   padding: 40px;
   height: calc(100vh - 190px);
@@ -27,7 +28,6 @@
 }
 @media (min-width: 480px) and (max-width: 1200px) {
   .wrapper {
-    width: 67vw;
     min-height: calc(100vh - 108px);
     padding: 40px 20px;
   }

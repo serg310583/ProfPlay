@@ -7,11 +7,11 @@ export function AwardsPage({ setIsActive }) {
   const isAwardLoading = useSelector((state) => state.awards.isLoading);
   const isAwardSuccess = useSelector((state) => state.awards.isSuccess);
   const awardData = useSelector((state) => state.awards.data);
-  console.log('awardData', awardData);
+
   const filteredAwardData = awardData.filter(
     (item) => item.data.achievement.data.tag === 'Achievement tag'
   ); //получаем только награды за что-то
-  console.log('filteredAwardData', filteredAwardData);
+
   const isAllAwardsLoading = useSelector(
     (state) => state.allAwardsOrg.isLoading
   );
@@ -19,7 +19,7 @@ export function AwardsPage({ setIsActive }) {
     (state) => state.allAwardsOrg.isSuccess
   );
   const allAwardsData = useSelector((state) => state.allAwardsOrg.data);
-  console.log('allAwardsData', allAwardsData);
+
   const filteredAllAwardsData = allAwardsData.filter(
     (item) => item.data.tag === 'Achievement tag'
   ); //получаем только награды за что-то
@@ -49,7 +49,7 @@ export function AwardsPage({ setIsActive }) {
     return <div className={s.awards}>Ошибка загрузки</div>;
   }
   return (
-    <div className={s.AwardsPage}>
+    <div className={s.awardsPage}>
       <div className={s.buttonCloseContainer}>
         <div className={s.scoreContainer}>
           <span className={s.titleAwards}>Баллы</span>
