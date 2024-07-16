@@ -1,8 +1,6 @@
 import { createBrowserRouter } from 'react-router-dom';
 import { MainLayout } from '../Layout/MainLayout/MainLayout';
 import { UserInfo } from '../Layout/UserInfo/UserInfo';
-import { News } from '../pages/News/News';
-import { Consultation } from '../pages/Profile/Consultation/Consultation';
 import { EventsUser } from '../pages/Profile/EventsUser/EventsUser';
 import { Recomendation } from '../pages/Profile/Recomendation/Recomendation';
 import { UserTests } from '../pages/Profile/UserTests/UserTests';
@@ -31,27 +29,16 @@ const router = createBrowserRouter([
         element: <Quizes />,
         errorElement: <ErrorPage />,
       },
-      {
-        path: 'news',
-        element: <News />,
-        errorElement: <ErrorPage />,
-      },
     ],
   },
-
   {
     path: '/profile',
-    element: <UserInfo />, // Используем Layout компонент здесь
+    element: <UserInfo />,
     errorElement: <ErrorPage />,
     children: [
       {
         path: 'userTests',
         element: <UserTests />,
-        errorElement: <ErrorPage />,
-      },
-      {
-        path: 'consultation',
-        element: <Consultation />,
         errorElement: <ErrorPage />,
       },
       {

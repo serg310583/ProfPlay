@@ -24,16 +24,6 @@ export function Header() {
         </li>
         <li>
           <NavLink
-            to='/news'
-            className={({ isActive }) =>
-              isActive ? styles.item_active : styles.item
-            }
-          >
-            Новости
-          </NavLink>
-        </li>
-        <li>
-          <NavLink
             to='/profile/userTests'
             className={({ isActive }) =>
               isActive ? styles.item_active : styles.item

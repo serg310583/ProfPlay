@@ -2,11 +2,13 @@
 .wrapper {
   display: flex;
   flex-direction: column;
-  width: 1200px;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
   padding: 100px 40px;
 
   .title {
-    font-size: 40px;
+    font-size: $fz40-16;
     color: $grey-bg;
     font-weight: 700;
     line-height: normal;
@@ -14,16 +16,15 @@
     margin-bottom: 40px;
   }
   .cards {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 40px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: minmax(161px, auto);
+    gap: 15px;
     .card {
       position: relative;
-
       display: flex;
       flex-direction: column;
-      width: 540px;
-      height: 277px;
+
       padding: 30px;
       border: 1px solid $grey-bg;
       border-radius: 30px;
@@ -39,6 +40,7 @@
         width: 132px;
         height: 32px;
         display: flex;
+        font-size: $fz16-12;
         align-items: center;
         justify-content: center;
         border-radius: 300px;
@@ -48,7 +50,7 @@
       .titleTest {
         margin-top: 60px;
         color: $grey-bg;
-        font-size: 18px;
+        font-size: $fz18-12;
         font-weight: 700;
         line-height: normal;
         margin-bottom: 15px;
@@ -70,11 +72,48 @@
         border: none;
         margin-top: 33px;
         color: $grey-bg;
-        font-size: 18px;
+        font-size: $fz18-12;
         font-weight: 700;
         line-height: normal;
         text-decoration: none;
         cursor: pointer;
+      }
+    }
+  }
+}
+@media (min-width: 320px) and (max-width: 1200px) {
+  .wrapper {
+    padding: 50px 20px;
+
+    .title {
+      margin-bottom: 28px;
+    }
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+      grid-auto-rows: minmax(120px, auto);
+      gap: 10px;
+      .card {
+        padding: 15x;
+
+        .time {
+          position: absolute;
+          top: 24px;
+          right: 20px;
+          width: 105px;
+          height: 24px;
+          margin-bottom: 18px;
+        }
+        .titleTest {
+          margin-top: 40px;
+          margin-bottom: 10px;
+        }
+
+        .link {
+          width: 150px;
+          margin-top: 24px;
+          font-size: $fz18-12;
+        }
       }
     }
   }
