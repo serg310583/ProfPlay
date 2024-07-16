@@ -35,6 +35,13 @@
   height: auto;
   border-radius: 30px;
 }
+.avatarImage.notActive {
+  width: 80%;
+  height: auto;
+  border-radius: 30px;
+  cursor: auto;
+  filter: grayscale(100%);
+}
 .avatarRank {
   margin-top: 5px;
   font-size: $fz16-9;
