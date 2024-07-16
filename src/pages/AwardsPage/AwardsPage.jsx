@@ -7,6 +7,9 @@ export function AwardsPage({ setIsActive }) {
   const isAwardLoading = useSelector((state) => state.awards.isLoading);
   const isAwardSuccess = useSelector((state) => state.awards.isSuccess);
   const awardData = useSelector((state) => state.awards.data);
+  const filteredAwardData = awardData.filter(
+    (item) => item.data.tag === 'Achievement tag'
+  ); //получаем только награды за что-то
 
   const isAllAwardsLoading = useSelector(
     (state) => state.allAwardsOrg.isLoading
@@ -15,6 +18,9 @@ export function AwardsPage({ setIsActive }) {
     (state) => state.allAwardsOrg.isSuccess
   );
   const allAwardsData = useSelector((state) => state.allAwardsOrg.data);
+  const filteredAllAwardsData = allAwardsData.filter(
+    (item) => item.data.tag === 'Achievement tag'
+  ); //получаем только награды за что-то
 
   const [totalRank, setTotalRank] = useState(0);
   useEffect(() => {
@@ -24,10 +30,12 @@ export function AwardsPage({ setIsActive }) {
     }, 0);
     setTotalRank(sumRank);
   }, [awardData, isAwardSuccess]);
+
   const receivedAwardIds = new Set(
-    awardData.map((award) => award.data.achievement.id)
+    filteredAllAwardsData.map((award) => award.data.id)
   );
-  const upcomingAwards = allAwardsData.filter(
+
+  const upcomingAwards = filteredAllAwardsData.filter(
     (award) => !receivedAwardIds.has(award.id)
   );
 
@@ -52,7 +60,7 @@ export function AwardsPage({ setIsActive }) {
         <div className={s.awardReceived}>
           <h4 className={s.titleAwards}>Полученные награды</h4>
           <ul className={s.list}>
-            {awardData.map((award) => (
+            {filteredAwardData.map((award) => (
               <li key={award.id} className={s.listItem}>
                 <div className={s.imageContainer}>
                   <img

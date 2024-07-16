@@ -1,7 +1,6 @@
 @import '../../../../SCSS/variables.scss';
 .wrapperImg {
-  width: 540px;
-  height: 222px;
+  width: 74%;
   padding: 20px;
   display: flex;
   flex-direction: column;
@@ -11,15 +10,15 @@
   background-color: $grey-bg2;
   border-radius: 15px;
   img {
-    width: 210px;
-    height: 140px;
+    width: 100%;
+    height: 100%;
     object-fit: cover;
   }
   .question {
     width: 100%;
     margin-top: 10px;
     color: $black-2;
-    font-size: 18px;
+    font-size: $fz18-12;
     font-weight: 700;
     line-height: 21.78px;
     letter-spacing: 0.16px;
@@ -29,34 +28,20 @@
 
 @media (min-width: 480px) and (max-width: 1200px) {
   .wrapperImg {
-    width: 305px;
-    height: 164px;
+    width: 79%;
     padding: 10px 20px;
-    img {
-      width: 159px;
-      height: 106px;
-    }
     .question {
-      width: 265px;
       margin-top: 8px;
-      font-size: 12px;
       line-height: normal;
     }
   }
 }
 @media (min-width: 320px) and (max-width: 479px) {
   .wrapperImg {
-    width: 300px;
-    height: 192px;
+    width: 93%;
     padding: 10px 0;
-    img {
-      width: 159px;
-      height: 106px;
-    }
     .question {
-      width: 265px;
       margin-top: 15px;
-      font-size: 12px;
     }
   }
 }
