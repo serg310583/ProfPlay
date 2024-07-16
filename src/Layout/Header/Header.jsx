@@ -12,26 +12,26 @@ export function Header() {
         <img src='/assets/images/logo.svg' alt='logo' />
       </Link>
       <ul className={styles.list}>
-        {/* <li>
-					<NavLink
-						to='/tests'
-						className={({ isActive }) =>
-							isActive ? styles.item_active : styles.item
-						}
-					>
-						Тесты
-					</NavLink>
-				</li>
-				<li>
-					<NavLink
-						to='/news'
-						className={({ isActive }) =>
-							isActive ? styles.item_active : styles.item
-						}
-					>
-						Новости
-					</NavLink>
-				</li> */}
+        <li>
+          <NavLink
+            to='/tests'
+            className={({ isActive }) =>
+              isActive ? styles.item_active : styles.item
+            }
+          >
+            Тесты
+          </NavLink>
+        </li>
+        <li>
+          <NavLink
+            to='/news'
+            className={({ isActive }) =>
+              isActive ? styles.item_active : styles.item
+            }
+          >
+            Новости
+          </NavLink>
+        </li>
         <li>
           <NavLink
             to='/profile/userTests'

@@ -1,11 +1,13 @@
 import { Dialog, DialogPanel, DialogTitle } from '@headlessui/react';
 import { useDispatch, useSelector } from 'react-redux';
+import { Link, useNavigate } from 'react-router-dom';
 import { closeWarningModal } from '../../core/store/reducers/Modal/ModalWarningTestSlice';
 import { Close } from '../UIcomponents/Close';
 import s from './ModalWarningTest.module.scss';
 
 export function ModalWarningTest() {
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
+  // const location = useLocation();
   const dispatch = useDispatch();
   const handleClose = () => {
     dispatch(closeWarningModal());
@@ -13,9 +15,10 @@ export function ModalWarningTest() {
   const { isWarningModalVisible, link } = useSelector(
     (state) => state.warningModal
   );
-  // const handleRedirectTest = (link) => {
-  //   navigate({ link });
-  // };
+  const handleRedirectTest = (link) => {
+    navigate({ link });
+    console.log('click');
+  };
   return (
     <div>
       <>
@@ -35,14 +38,9 @@ export function ModalWarningTest() {
               перезаписаны.
             </p>{' '}
             <div className={s.buttonsContainer}>
-              {/* <button
-                className={s.popup__button_grey}
-                onClick={handleRedirectTest()}
-              >
+              <Link to={link} className={s.popup__button_grey}>
                 Начать тест
-              </button> */}
-
-              {/* <Link to={link}>Начать тест</Link> */}
+              </Link>
               <button className={s.popup__button_white} onClick={handleClose}>
                 Отмена
               </button>
