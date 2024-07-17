@@ -4,7 +4,7 @@ export const awardModalSlice = createSlice({
   name: 'awardModal',
   initialState: {
     isAwardModalVisible: false,
-    awardInfo: null,
+    awardInfo: '',
   },
   reducers: {
     openAwardModal: (state, action) => {
@@ -13,7 +13,7 @@ export const awardModalSlice = createSlice({
     },
     closeAwardModal: (state) => {
       state.isAwardModalVisible = false;
-      state.awardInfo = null;
+      state.awardInfo = '';
     },
     setAwardInfo: (state, action) => {
       state.awardInfo = action.payload;

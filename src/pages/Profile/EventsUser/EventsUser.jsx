@@ -1,6 +1,6 @@
 import s from './EventsUser.module.scss';
 
-export function EventsUser() {
+export default function EventsUser() {
   const events = [
     {
       link: 'https://www.muiv.ru/abitur/dod/#form-dod',

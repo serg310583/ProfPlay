@@ -4,7 +4,7 @@ import { closeAwardModal } from '../../core/store/reducers/Modal/ModalAwardsSlic
 import { Close } from '../UIcomponents/Close';
 import styles from './ModalAward.module.scss';
 
-export function ModalAward() {
+export default function ModalAward() {
   const dispatch = useDispatch();
   const { isAwardModalVisible, awardInfo } = useSelector(
     (state) => state.awardModal

@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useLocation, useNavigate } from 'react-router-dom';
+import LoaderQuiz from '../../components/UIcomponents/Loaders/LoaderQuiz';
 import { openAwardModal } from '../../core/store/reducers/Modal/ModalAwardsSlice';
 import { addAchiv } from '../../core/store/reducers/achiver';
 import {
@@ -25,7 +26,7 @@ import { KlimovRender } from './QuizKlimov/KlimovRender';
 import { OvcharovaRender } from './QuizOvcharova/OvcharovaRender';
 import s from './QuizView.module.scss';
 
-export function QuizView() {
+export default function QuizView() {
   const dispatch = useDispatch();
   const location = useLocation();
   const navigate = useNavigate();
@@ -301,8 +302,12 @@ export function QuizView() {
       dispatch(decrementStep());
     }
   };
-  if (isLoadingQuiz) {
-    return <div className={s.loaderWindow}>Загрузка теста...</div>; // Или индикатор загрузки
+  if (isLoadingQuiz || isLoadingAnswers) {
+    return (
+      <div className={s.loaderWindow}>
+        <LoaderQuiz />
+      </div>
+    );
   }
   const quizHoland = 'quizHoland';
   const quizKlimov = 'quizKlimov';

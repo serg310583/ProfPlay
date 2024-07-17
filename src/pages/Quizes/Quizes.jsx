@@ -3,7 +3,7 @@ import { openWarningModal } from '../../core/store/reducers/Modal/ModalWarningTe
 import { selectAllTests } from '../../core/store/reducers/testsSlice';
 import s from './Quizes.module.scss';
 
-export function Quizes() {
+export default function Quizes() {
   const allTests = useSelector(selectAllTests);
   const dispatch = useDispatch();
   const handleOpen = (link) => {

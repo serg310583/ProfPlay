@@ -7,7 +7,7 @@ import { SideBar } from '../SideBar/SideBar';
 import { Tabs } from '../Tabs/Tabs';
 import s from './UserInfo.module.scss';
 
-export function UserInfo() {
+function UserInfo() {
   //кнопка "Все награды"
   const [isActive, setIsActive] = useState(false);
   const toggleAwardsPage = () => {
@@ -52,3 +52,4 @@ export function UserInfo() {
     </section>
   );
 }
+export default UserInfo;

@@ -9,7 +9,7 @@ import {
 } from '../../../core/store/reducers/testsUser';
 import s from './UserTests.module.scss';
 
-export function UserTests() {
+export default function UserTests() {
   const currentDomain = window.location.origin;
   const dispatch = useDispatch();
   const userId =

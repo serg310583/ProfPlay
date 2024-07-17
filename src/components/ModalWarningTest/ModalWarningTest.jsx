@@ -5,7 +5,7 @@ import { closeWarningModal } from '../../core/store/reducers/Modal/ModalWarningT
 import { Close } from '../UIcomponents/Close';
 import s from './ModalWarningTest.module.scss';
 
-export function ModalWarningTest() {
+export default function ModalWarningTest() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const handleClose = () => {

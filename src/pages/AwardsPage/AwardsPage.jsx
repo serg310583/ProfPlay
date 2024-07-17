@@ -1,7 +1,7 @@
-import { useEffect, useState } from 'react'
-import { useSelector } from 'react-redux'
-import { Close } from '../../components/UIcomponents/Close'
-import s from './AwardsPage.module.scss'
+import { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
+import { Close } from '../../components/UIcomponents/Close';
+import s from './AwardsPage.module.scss';
 
 export function AwardsPage({ setIsActive }) {
   const isAwardLoading = useSelector((state) => state.awards.isLoading);
@@ -10,8 +10,7 @@ export function AwardsPage({ setIsActive }) {
 
   const filteredAwardData = awardData.filter(
     (item) => item.data.achievement.data.tag === 'Achievement tag'
-    (item) => item.data.achievement.data.tag === 'Achievement tag'
-  ); //получаем только награды за что-то
+  );
 
   const isAllAwardsLoading = useSelector(
     (state) => state.allAwardsOrg.isLoading
@@ -23,11 +22,10 @@ export function AwardsPage({ setIsActive }) {
 
   const filteredAllAwardsData = allAwardsData.filter(
     (item) => item.data.tag === 'Achievement tag'
-  ); //получаем только награды за что-то
+  );
 
   const [totalRank, setTotalRank] = useState(0);
   useEffect(() => {
-    // Вычисляем сумму всех значений rank
     const sumRank = awardData.reduce((total, award) => {
       return total + (award.data.achievement.data.rank || 0);
     }, 0);
@@ -36,14 +34,11 @@ export function AwardsPage({ setIsActive }) {
 
   const receivedAwardIds = new Set(
     filteredAwardData.map((award) => award.data.achievement.id)
-    filteredAwardData.map((award) => award.data.achievement.id)
   );
-  console.log(filteredAwardData);
 
   const upcomingAwards = filteredAllAwardsData.filter(
     (award) => !receivedAwardIds.has(award.id)
   );
-  console.log('предстоящие награды', upcomingAwards);
 
   if (isAwardLoading || isAllAwardsLoading) {
     return <div className={s.awards}>Загрузка...</div>;

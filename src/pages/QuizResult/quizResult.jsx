@@ -6,7 +6,7 @@ import { HolandRender } from './ResultHoland/HolandRender';
 import { KlimovRender } from './ResultKlimov/KlimovRender';
 import { OvcharovaRender } from './ResultOvcharova/OvcharovaRender';
 
-export function QuizResult() {
+export default function QuizResult() {
   const location = useLocation();
   const id = new URLSearchParams(location.search).get('id');
   const [showRecommendations, setShowRecommendations] = useState(false);
