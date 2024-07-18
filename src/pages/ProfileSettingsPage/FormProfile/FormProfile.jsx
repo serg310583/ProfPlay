@@ -21,6 +21,7 @@ import Avatars from '../Avatar/Avatar';
 
 import { Calendar } from '../../../components/Calendar/Calendar.jsx';
 import { addAchiv } from '../../../core/store/reducers/achiver.js';
+import { fetchAwardUser } from '../../../core/store/reducers/awardsUser.js';
 import ids from './../../../core/variables.js';
 import s from './FormProfile.module.scss';
 
@@ -64,30 +65,41 @@ export function FormProfile() {
       account_id: account_id,
       project_id: projectId,
     };
-    dispatch(
-      addAchiv({
-        user_id: account_id,
-        achievement_id: selectedAvatarId,
-      })
-    );
+
+    try {
+      // Отправка данных об аватаре
+      const addAvatar = await dispatch(
+        addAchiv({
+          user_id: account_id,
+          achievement_id: selectedAvatarId,
+        })
+      );
+      const avatarResult = unwrapResult(addAvatar); // Получение результата выполнения thunk
+
+      // Выполнение fetchAwardUser только после успешного завершения addAchiv
+      await dispatch(fetchAwardUser(account_id));
+    } catch (err) {
+      console.error('Ошибка при отправке данных аватара:', err);
+    }
+
     try {
       let resultAction;
       if (!userData.profile_id) {
-        resultAction = await dispatch(fetchPostProfileUser(formattedValues));
+        // Если профиль еще не создан, выполняем POST запрос
+        resultAction = dispatch(fetchPostProfileUser(formattedValues));
       } else {
-        resultAction = await dispatch(
+        // Если профиль уже существует, выполняем PATCH запрос
+        resultAction = dispatch(
           fetchPatchProfileUser({
             userId: account_id,
             values: formattedValues,
           })
         );
       }
-
-      const originalPromiseResult = unwrapResult(resultAction);
-      // Если запрос успешен, отправляем запрос на получение обновленных данных
-      await dispatch(fetchGetProfileUser(account_id));
+      const profileResult = await unwrapResult(resultAction); // Получение результата выполнения thunk
+      console.log('Profile updated successfully:', profileResult);
+      dispatch(fetchGetProfileUser(account_id));
     } catch (err) {
-      // Обработка ошибки
       console.error('Ошибка при отправке данных профиля:', err);
     }
   };

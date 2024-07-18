@@ -1,15 +1,15 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import {
-  AwardState,
-  fetchAwardUser,
-} from '../../../core/store/reducers/awardsUser';
+import { fetchAwardUser } from '../../../core/store/reducers/awardsUser';
 
 import s from './Awards.module.scss';
 export function Awards() {
   const dispatch = useDispatch();
-  const { isLoading, isSuccess, data } = useSelector(AwardState);
+  const isLoading = useSelector((state) => state.awards.isLoading);
+  const isSuccess = useSelector((state) => state.awards.isSuccess);
+  const data = useSelector((state) => state.awards.data);
+  const isSuccessAddAvatar = useSelector((state) => state.achiver.isSuccess);
   const [totalRank, setTotalRank] = useState(0);
   const filteredData = data.filter(
     (item) => item.data.tag === 'Achievement tag'
@@ -24,17 +24,19 @@ export function Awards() {
 
   useEffect(() => {
     // Вычисляем сумму всех значений rank
-    const sumRank = data.reduce((total, award) => {
-      return total + (award.data.achievement.data.rank || 0);
-    }, 0);
-    setTotalRank(sumRank);
-  }, [data]);
+    if (isSuccess) {
+      const sumRank = data.reduce((total, award) => {
+        return total + (award.data.achievement.data.rank || 0);
+      }, 0);
+      setTotalRank(sumRank);
+    }
+  }, [isSuccessAddAvatar, data]);
 
   if (isLoading) {
     return <div>Загрузка...</div>;
   }
 
-  if (data.length === 0) {
+  if (isSuccess && data.length === 0) {
     return (
       <div className={s.noAward}>
         <p>У вас еще нет наград</p>

@@ -3,6 +3,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Route, Routes } from 'react-router-dom';
 import s from './App.module.scss';
 import './SCSS/index.scss';
+import ModalAward from './components/ModalAward/ModalAward';
+import ModalWarningTest from './components/ModalWarningTest/ModalWarningTest';
 import LoaderQuiz from './components/UIcomponents/Loaders/LoaderQuiz';
 import { fetchGetAllAwardsOrg } from './core/store/reducers/AllAwardsOrg/thunk';
 import { StateAuth, getCurrentUser } from './core/store/reducers/auth';
@@ -61,6 +63,8 @@ export function App() {
         </div>
       }
     >
+      {isAwardModalVisible && <ModalAward />}
+      {isWarningModalVisible && <ModalWarningTest />}
       <Routes>
         <Route exact path='/' element={<MainLayout />}>
           <Route exact path='' element={<QuizView />} />
@@ -72,8 +76,6 @@ export function App() {
           <Route exact path='recomendation' element={<Recomendation />} />
           <Route exact path='events' element={<EventsUser />} />
         </Route>
-        <Route element={isAwardModalVisible && <ModalAward />} />
-        <Route element={isWarningModalVisible && <ModalWarningTest />} />
       </Routes>
     </Suspense>
   );

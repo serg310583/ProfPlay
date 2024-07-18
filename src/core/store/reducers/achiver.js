@@ -2,6 +2,7 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import { awardsApi } from '../../../api/axios';
 const initialState = {
   isLoading: false,
+  isSuccess: false,
 };
 
 export const addAchiv = createAsyncThunk(
@@ -23,12 +24,15 @@ const achiverSlice = createSlice({
     builder
       .addCase(addAchiv.pending, (state) => {
         state.isLoading = true;
+        state.isSuccess = false;
       })
       .addCase(addAchiv.fulfilled, (state) => {
         state.isLoading = false;
+        state.isSuccess = true;
       })
       .addCase(addAchiv.rejected, (state) => {
         state.isLoading = false;
+        state.isSuccess = false;
       });
   },
 });
