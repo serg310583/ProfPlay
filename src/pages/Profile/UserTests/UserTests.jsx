@@ -71,13 +71,6 @@ export default function UserTests() {
     return allTests.find((test) => test.id === pollId);
   };
 
-  if (isLoading) {
-    return (
-      <div className={s.wrapper_userTests}>
-        <p className={s.titleCard}>Загрузка...</p>
-      </div>
-    );
-  }
   const renderTest = (test) => {
     const testDetails = findTestDetails(test.pollId);
     return (
@@ -122,46 +115,51 @@ export default function UserTests() {
       </li>
     );
   };
-
-  if (isSuccess) {
+  if (isLoading) {
     return (
       <div className={s.wrapper_userTests}>
-        <div className={s.titleCard}>Пройденные</div>
-        {specificPassedTests.length == 0 ? (
-          '-'
-        ) : (
-          <ul className={s.list}>{specificPassedTests.map(renderTest)}</ul>
-        )}
-
-        <div className={s.titleCard}>В процессе</div>
-        {specificUnpassedTests.length == 0 ? (
-          '-'
-        ) : (
-          <ul className={s.list}>{specificUnpassedTests.map(renderTest)}</ul>
-        )}
-
-        <div className={s.titleCard}>Рекомендуемые</div>
-        <ul className={s.list}>
-          {recommendedTests.map((card) => (
-            <li key={card.id} className={s.listItemRecom}>
-              <div className={s.time}>~10 минут</div>
-              <p className={s.title}>
-                {card.title} <br />
-                {card.subtitle && <span>{card.subtitle}</span>}
-              </p>
-              <ul>
-                {card.recommendations.map((rec, index) => (
-                  <li key={index}>{rec}</li>
-                ))}
-              </ul>
-
-              <Link className={s.link} to={`${card.link}`}>
-                Пройти тест
-              </Link>
-            </li>
-          ))}
-        </ul>
+        <p className={s.titleCard}>Загрузка...</p>
       </div>
     );
   }
+
+  return (
+    <div className={s.wrapper_userTests}>
+      <div className={s.titleCard}>Пройденные</div>
+      {specificPassedTests.length == 0 ? (
+        '-'
+      ) : (
+        <ul className={s.list}>{specificPassedTests.map(renderTest)}</ul>
+      )}
+
+      <div className={s.titleCard}>В процессе</div>
+      {specificUnpassedTests.length == 0 ? (
+        '-'
+      ) : (
+        <ul className={s.list}>{specificUnpassedTests.map(renderTest)}</ul>
+      )}
+
+      <div className={s.titleCard}>Рекомендуемые</div>
+      <ul className={s.list}>
+        {recommendedTests.map((card) => (
+          <li key={card.id} className={s.listItemRecom}>
+            <div className={s.time}>~10 минут</div>
+            <p className={s.title}>
+              {card.title} <br />
+              {card.subtitle && <span>{card.subtitle}</span>}
+            </p>
+            <ul>
+              {card.recommendations.map((rec, index) => (
+                <li key={index}>{rec}</li>
+              ))}
+            </ul>
+
+            <Link className={s.link} to={`${card.link}`}>
+              Пройти тест
+            </Link>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
 }

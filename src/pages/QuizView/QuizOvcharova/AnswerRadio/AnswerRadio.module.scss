@@ -15,7 +15,7 @@
     margin: 0 29px;
     width: 216px;
     .button {
-      -webkit-tap-highlight-color: transparent; //убираем дефолтную синюю подсветку
+      -webkit-tap-highlight-color: transparent;
       width: 24px;
       height: 24px;
       border-radius: 100%;
@@ -60,11 +60,6 @@
       display: flex;
       justify-content: space-between;
       margin: 0 10px;
-      width: 84px;
-      .button {
-        width: 12px;
-        height: 12px;
-      }
     }
   }
 }

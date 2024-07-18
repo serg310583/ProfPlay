@@ -232,7 +232,6 @@ export default function QuizView() {
     try {
       const pollId = quizData.id;
       const templateId = quizData.templateId;
-
       const assessorId = 'any string';
       const externalId = 'any string';
       const is_passed = false;

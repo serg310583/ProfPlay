@@ -6,9 +6,13 @@ import styles from './ModalAward.module.scss';
 
 export default function ModalAward() {
   const dispatch = useDispatch();
-  const { isAwardModalVisible, awardInfo } = useSelector(
-    (state) => state.awardModal
+  const isAwardModalVisible = useSelector(
+    (state) => state.awardModal.isAwardModalVisible
   );
+  const awardInfo = useSelector((state) => state.awardModal.awardInfo);
+  // const { isAwardModalVisible, awardInfo } = useSelector(
+  //   (state) => state.awardModal
+  // );
   const handleClose = () => {
     dispatch(closeAwardModal());
     // отправляем событие закрытия
@@ -17,7 +21,6 @@ export default function ModalAward() {
   const handleCloseAndRedirect = () => {
     dispatch(closeAwardModal());
     window.dispatchEvent(new Event('awardModalClose'));
-    //TODO: написать логику переключения на окно с наградами
   };
   if (!isAwardModalVisible) return null;
 
@@ -49,12 +52,12 @@ export default function ModalAward() {
             Получено{' '}
             <span className={styles.accent}>{awardInfo?.data.rank}</span> баллов
           </p>
-          <button
+          {/* <button
             onClick={handleCloseAndRedirect}
             className={styles.buttonToShop}
           >
             В магазин баллов
-          </button>
+          </button> */}
         </DialogPanel>
       </Dialog>
     </>
