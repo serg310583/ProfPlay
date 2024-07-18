@@ -10,9 +10,7 @@ export default function ModalAward() {
     (state) => state.awardModal.isAwardModalVisible
   );
   const awardInfo = useSelector((state) => state.awardModal.awardInfo);
-  // const { isAwardModalVisible, awardInfo } = useSelector(
-  //   (state) => state.awardModal
-  // );
+
   const handleClose = () => {
     dispatch(closeAwardModal());
     // отправляем событие закрытия
