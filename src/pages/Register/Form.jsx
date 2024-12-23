@@ -59,6 +59,7 @@ const FormRegistration = () => {
               achievement_id: idAwards.hands,
             })
           );
+          
           dispatch(openAwardModal(infoModalRegistration));
           dispatch(fetchAwardUser(userId));
           dispatch(fetchQuizzesUser(userId));

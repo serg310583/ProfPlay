@@ -1,24 +1,20 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-export const warningModalSlice = createSlice({
-  name: 'warningModal',
+export const menuSlice = createSlice({
+  name: 'menu',
   initialState: {
-    isWarningModalVisible: false,
-    link: '',
+    isMenuVisible: false,
   },
   reducers: {
-    openWarningModal: (state, action) => {
-      state.isWarningModalVisible = true;
-      state.link = action.payload;
+    openMenu: (state, action) => {
+      state.isMenuVisible = true;
     },
-    closeWarningModal: (state) => {
-      state.isWarningModalVisible = false;
-      state.link = '';
+    closeMenu: (state) => {
+      state.isMenuVisible = false;
     },
   },
 });
 
-export const { openWarningModal, closeWarningModal } =
-  warningModalSlice.actions;
+export const { openMenu, closeMenu } = menuSlice.actions;
 
-export default warningModalSlice.reducer;
+export default menuSlice.reducer;

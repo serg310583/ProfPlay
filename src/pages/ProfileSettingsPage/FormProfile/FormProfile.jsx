@@ -97,7 +97,7 @@ export function FormProfile() {
         );
       }
       const profileResult = await unwrapResult(resultAction); // Получение результата выполнения thunk
-      console.log('Profile updated successfully:', profileResult);
+      
       dispatch(fetchGetProfileUser(account_id));
     } catch (err) {
       console.error('Ошибка при отправке данных профиля:', err);
